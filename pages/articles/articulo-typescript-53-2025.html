@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeScript 5.3: Decorators & Pattern Matching - Revolución 2025 - Mi Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navegación -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <a href="../../index.html">
+                        <img src="../../imagenes/Logo1.png" alt="Logo" class="h-12 w-12 rounded-full">
+                    </a>
+                    <a href="../../index.html">
+                        <span class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Mi Blog</span>
+                    </a>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../../index.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Inicio</a>
+                    <a href="../nosotros.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Sobre Mí</a>
+                    <a href="../servicios.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Proyectos</a>
+                    <a href="../noticias.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Blog</a>
+                    <a href="../contacto.html" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300">Contacto</a>
+                </div>
+                
+                <!-- Botón menú móvil -->
+                <button class="md:hidden text-gray-700" onclick="toggleMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Menú móvil -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="../../index.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Inicio</a>
+                <a href="../nosotros.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Sobre Mí</a>
+                <a href="../servicios.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Proyectos</a>
+                <a href="../noticias.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Blog</a>
+                <a href="../contacto.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Espaciador para el nav fijo -->
+    <div class="h-20"></div>
+
+    <main class="bg-gray-50 py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <article class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <!-- Header del Artículo -->
+                <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-8 text-white">
+                    <div class="flex items-center space-x-2 text-sm mb-4">
+                        <a href="../../index.html" class="hover:underline">Inicio</a>
+                        <span>›</span>
+                        <a href="../noticias.html" class="hover:underline">Blog</a>
+                        <span>›</span>
+                        <span>TypeScript 5.3</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">TypeScript 5.3: Decorators y Pattern Matching</h1>
+                    <div class="flex items-center space-x-4 text-sm">
+                        <span>📅 15 de Octubre, 2025</span>
+                        <span>⏱️ 12 min lectura</span>
+                        <span>👤 Por Admin</span>
+                    </div>
+                </div>
+
+                <!-- Imagen Principal -->
+                <div class="relative h-96 overflow-hidden">
+                    <img src="../../imagenes/6.jpg" alt="TypeScript 5.3" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Contenido del Artículo -->
+                <div class="p-8 md:p-12">
+                    
+                    <!-- Introducción -->
+                    <div class="bg-purple-50 border-l-4 border-purple-600 p-6 rounded-r-lg mb-8">
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            <strong>TypeScript 5.3</strong> introduce características que transforman JavaScript en un lenguaje 
+                            de primera clase. Con <strong>Decorators estables</strong>, <strong>Pattern Matching</strong> y mejoras 
+                            de rendimiento del 70%, esta versión eleva la seguridad y expresividad del código a nuevos niveles.
+                        </p>
+                    </div>
+
+                    <!-- Tabla de Contenidos -->
+                    <div class="bg-gray-50 p-6 rounded-xl mb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-800">📋 Contenido</h2>
+                        <ul class="space-y-2">
+                            <li><a href="#novedades" class="text-purple-600 hover:underline">1. Novedades Principales</a></li>
+                            <li><a href="#decorators" class="text-purple-600 hover:underline">2. Decorators Estables</a></li>
+                            <li><a href="#pattern-matching" class="text-purple-600 hover:underline">3. Pattern Matching</a></li>
+                            <li><a href="#branded-types" class="text-purple-600 hover:underline">4. Branded Types</a></li>
+                            <li><a href="#mejores-practicas" class="text-purple-600 hover:underline">5. Mejores Prácticas</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Sección 1: Novedades -->
+                    <section id="novedades" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6 text-gray-800">🚀 Novedades de TypeScript 5.3</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl border-2 border-purple-200">
+                                <h3 class="text-xl font-bold mb-3 text-purple-900">🎨 Decorators Stage 3</h3>
+                                <p class="text-gray-700">Metaprogramación elegante con decorators completamente estables según el estándar ECMAScript.</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border-2 border-blue-200">
+                                <h3 class="text-xl font-bold mb-3 text-blue-900">🔍 Pattern Matching</h3>
+                                <p class="text-gray-700">Match expressions nativas para código más declarativo y legible.</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border-2 border-green-200">
+                                <h3 class="text-xl font-bold mb-3 text-green-900">⚡ Performance 70%+</h3>
+                                <p class="text-gray-700">Compilación y type checking hasta 70% más rápido que versiones anteriores.</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-xl border-2 border-orange-200">
+                                <h3 class="text-xl font-bold mb-3 text-orange-900">🛡️ Branded Types</h3>
+                                <p class="text-gray-700">Tipos nominales para domain modeling más seguro y expresivo.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sección 2: Decorators -->
+                    <section id="decorators" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6 text-gray-800">🎨 Decorators: Metaprogramación Elegante</h2>
+                        
+                        <p class="text-lg mb-6 text-gray-700">
+                            Los Decorators permiten modificar o extender el comportamiento de clases, métodos y propiedades 
+                            de forma declarativa. Ahora son parte oficial del estándar ECMAScript Stage 3.
+                        </p>
+
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">📝 Ejemplo: Class Decorator</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl overflow-x-auto mb-6">
+                            <pre class="text-sm"><code>// Decorator para logging automático
+function Logged(target: any) {
+  return class extends target {
+    constructor(...args: any[]) {
+      super(...args)
+      console.log(\`Creando instancia de \${target.name}\`)
+    }
+  }
+}
+
+@Logged
+class Usuario {
+  constructor(public nombre: string) {}
+}
+
+// Al crear: "Creando instancia de Usuario"
+const user = new Usuario('Ana')</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">🔧 Method Decorator para Validación</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl overflow-x-auto mb-6">
+                            <pre class="text-sm"><code>function Validate(
+  target: any,
+  propertyKey: string,
+  descriptor: PropertyDescriptor
+) {
+  const originalMethod = descriptor.value
+  
+  descriptor.value = function(...args: any[]) {
+    // Validar que todos los args sean strings
+    if (!args.every(arg => typeof arg === 'string')) {
+      throw new Error('Todos los argumentos deben ser strings')
+    }
+    return originalMethod.apply(this, args)
+  }
+}
+
+class ProductoService {
+  @Validate
+  crearProducto(nombre: string, categoria: string) {
+    console.log(\`Creando: \${nombre} en \${categoria}\`)
+  }
+}
+
+const service = new ProductoService()
+service.crearProducto('Laptop', 'Electrónica') // ✅ OK
+service.crearProducto('Laptop', 123) // ❌ Error!</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">💼 Caso de Uso Real: ORM con Decorators</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl overflow-x-auto mb-6">
+                            <pre class="text-sm"><code>// Decorators para definir entidades
+function Entity(tableName: string) {
+  return function(target: any) {
+    target.tableName = tableName
+  }
+}
+
+function Column(type: string) {
+  return function(target: any, propertyKey: string) {
+    if (!target.columns) target.columns = {}
+    target.columns[propertyKey] = type
+  }
+}
+
+@Entity('usuarios')
+class Usuario {
+  @Column('INTEGER')
+  id: number
+
+  @Column('VARCHAR(100)')
+  nombre: string
+
+  @Column('VARCHAR(100)')
+  email: string
+}
+
+// Metadata disponible automáticamente
+console.log(Usuario.tableName) // 'usuarios'
+console.log(Usuario.columns) 
+// { id: 'INTEGER', nombre: 'VARCHAR(100)', email: 'VARCHAR(100)' }</code></pre>
+                        </div>
+                    </section>
+
+                    <!-- Sección 3: Pattern Matching -->
+                    <section id="pattern-matching" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6 text-gray-800">🔍 Pattern Matching Nativo</h2>
+                        
+                        <p class="text-lg mb-6 text-gray-700">
+                            Pattern Matching permite escribir lógica condicional de forma más declarativa y segura en tipos.
+                        </p>
+
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Ejemplo Básico</h3>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <h4 class="font-bold mb-2 text-red-600">❌ Forma Tradicional</h4>
+                                <div class="bg-gray-900 text-white p-4 rounded-xl">
+                                    <pre class="text-xs"><code>function getStatus(code: number) {
+  if (code === 200) {
+    return 'OK'
+  } else if (code === 404) {
+    return 'Not Found'
+  } else if (code >= 500) {
+    return 'Server Error'
+  } else {
+    return 'Unknown'
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2 text-green-600">✅ Con Pattern Matching</h4>
+                                <div class="bg-gray-900 text-white p-4 rounded-xl">
+                                    <pre class="text-xs"><code>function getStatus(code: number) {
+  return match (code) {
+    200 => 'OK',
+    404 => 'Not Found',
+    >= 500 => 'Server Error',
+    _ => 'Unknown'
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Pattern Matching con Objetos</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl overflow-x-auto mb-6">
+                            <pre class="text-sm"><code>type Evento = 
+  | { type: 'click', x: number, y: number }
+  | { type: 'keypress', key: string }
+  | { type: 'scroll', delta: number }
+
+function handleEvent(evento: Evento) {
+  return match (evento) {
+    { type: 'click', x, y } => \`Click en (\${x}, \${y})\`,
+    { type: 'keypress', key: 'Enter' } => 'Enter presionado',
+    { type: 'keypress' } => 'Otra tecla',
+    { type: 'scroll', delta } when delta > 0 => 'Scroll abajo',
+    { type: 'scroll' } => 'Scroll arriba',
+    _ => 'Evento desconocido'
+  }
+}</code></pre>
+                        </div>
+                    </section>
+
+                    <!-- Sección 4: Branded Types -->
+                    <section id="branded-types" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6 text-gray-800">🛡️ Branded Types para Domain Modeling</h2>
+                        
+                        <p class="text-lg mb-6 text-gray-700">
+                            Branded Types permiten crear tipos nominales que previenen errores sutiles al diferenciar 
+                            valores que estructuralmente son iguales pero semánticamente diferentes.
+                        </p>
+
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Problema sin Branded Types</h3>
+                        <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg mb-6">
+                            <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                <pre class="text-sm"><code>type UserId = string
+type ProductId = string
+
+function getUser(id: UserId) { /* ... */ }
+function getProduct(id: ProductId) { /* ... */ }
+
+const userId: UserId = "user-123"
+const productId: ProductId = "prod-456"
+
+// ⚠️ TypeScript no detecta este error!
+getUser(productId) // Debería ser error pero no lo es</code></pre>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Solución con Branded Types</h3>
+                        <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg mb-6">
+                            <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                <pre class="text-sm"><code>// Definir branded types
+type Brand&lt;K, T&gt; = K & { __brand: T }
+
+type UserId = Brand&lt;string, 'UserId'&gt;
+type ProductId = Brand&lt;string, 'ProductId'&gt;
+
+// Funciones constructoras
+function createUserId(id: string): UserId {
+  return id as UserId
+}
+
+function createProductId(id: string): ProductId {
+  return id as ProductId
+}
+
+// Funciones que usan los tipos
+function getUser(id: UserId) { /* ... */ }
+function getProduct(id: ProductId) { /* ... */ }
+
+const userId = createUserId("user-123")
+const productId = createProductId("prod-456")
+
+getUser(userId) // ✅ OK
+getUser(productId) // ❌ Error: Type 'ProductId' not assignable to 'UserId'</code></pre>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Ejemplo Avanzado: Email Validado</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl overflow-x-auto mb-6">
+                            <pre class="text-sm"><code>type ValidEmail = Brand&lt;string, 'ValidEmail'&gt;
+
+function validateEmail(email: string): ValidEmail | null {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  if (regex.test(email)) {
+    return email as ValidEmail
+  }
+  return null
+}
+
+function sendEmail(to: ValidEmail, subject: string, body: string) {
+  console.log(\`Enviando email a \${to}\`)
+  // Garantizado que 'to' es un email válido
+}
+
+// Uso seguro
+const email = validateEmail('user@example.com')
+if (email) {
+  sendEmail(email, 'Hola', 'Mensaje') // ✅ OK
+}
+
+// Esto no compila:
+sendEmail('invalid-email', 'Test', 'Body') // ❌ Error de tipo</code></pre>
+                        </div>
+                    </section>
+
+                    <!-- Sección 5: Mejores Prácticas -->
+                    <section id="mejores-practicas" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6 text-gray-800">✨ Mejores Prácticas TypeScript 5.3</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-blue-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-3 text-blue-900">1. Usa Decorators para Cross-Cutting Concerns</h3>
+                                <p class="text-gray-700 mb-3">
+                                    Logging, validación, caché, autenticación - todo lo que cruza múltiples capas.
+                                </p>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                    <pre class="text-sm"><code>@Cache({ ttl: 300 })
+@RequireAuth()
+@Log()
+async getUserData(userId: string) {
+  return await db.user.findUnique({ where: { id: userId } })
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="bg-purple-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-3 text-purple-900">2. Pattern Matching para Reducir Complejidad</h3>
+                                <p class="text-gray-700 mb-3">
+                                    Reemplaza cadenas if-else complejas con pattern matching declarativo.
+                                </p>
+                            </div>
+
+                            <div class="bg-green-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-3 text-green-900">3. Branded Types en Domain Layer</h3>
+                                <p class="text-gray-700 mb-3">
+                                    Usa branded types para IDs, emails, URLs y otros valores del dominio.
+                                </p>
+                            </div>
+
+                            <div class="bg-orange-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-3 text-orange-900">4. Activa strict Mode Siempre</h3>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg mt-3">
+                                    <pre class="text-sm"><code>// tsconfig.json
+{
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Conclusión -->
+                    <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-8 rounded-xl text-white mt-12">
+                        <h2 class="text-2xl font-bold mb-4">🎯 Conclusión</h2>
+                        <p class="text-lg leading-relaxed">
+                            TypeScript 5.3 eleva JavaScript a nuevas alturas de seguridad y expresividad. Los Decorators, 
+                            Pattern Matching y Branded Types no solo hacen el código más elegante, sino también más robusto 
+                            y mantenible. Es momento de actualizar y aprovechar estas poderosas características.
+                        </p>
+                    </div>
+
+                    <!-- Navegación de Artículos -->
+                    <div class="flex justify-between items-center mt-12 pt-8 border-t">
+                        <a href="articulo-react-19-2025.html" class="text-purple-600 hover:underline">← React 19</a>
+                        <a href="../noticias.html" class="text-gray-600 hover:text-purple-600">Ver todos los artículos</a>
+                        <a href="articulo-ia-generativa-2025.html" class="text-purple-600 hover:underline">IA Generativa →</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2025 Mi Blog. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

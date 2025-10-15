@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Blog Personal - Desarrollo Web y Tecnología</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+    <!-- Navegación Fixed -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center">
+                        <img src="assets/images/Logo1.png" alt="Logo" class="h-10 w-auto">
+                    </a>
+                </div>
+
+                <!-- Menú Desktop -->
+                <div class="hidden md:flex md:items-center md:space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Inicio</a>
+                    <a href="pages/nosotros.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Sobre Mí</a>
+                    <a href="pages/servicios.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Proyectos</a>
+                    <a href="pages/noticias.html" class="text-gray-700 hover:text-primary font-medium transition-colors">Blog</a>
+                    <a href="pages/contacto.html" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-all transform hover:scale-105">Contacto</a>
+                </div>
+
+                <!-- Botón Mobile -->
+                <button onclick="toggleMenu()" class="md:hidden relative w-10 h-10 text-gray-700 focus:outline-none" id="mobile-menu-btn">
+                    <span class="sr-only">Abrir menú</span>
+                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                        <span class="block w-6 h-0.5 bg-current transform transition-all duration-300 -translate-y-1.5"></span>
+                        <span class="block w-6 h-0.5 bg-current transform transition-all duration-300 mt-1"></span>
+                        <span class="block w-6 h-0.5 bg-current transform transition-all duration-300 translate-y-1.5"></span>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Menú Mobile -->
+            <div id="navigation" class="hidden md:hidden pb-4">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-primary font-medium">Inicio</a>
+                <a href="pages/nosotros.html" class="block py-2 text-gray-700 hover:text-primary font-medium">Sobre Mí</a>
+                <a href="pages/servicios.html" class="block py-2 text-gray-700 hover:text-primary font-medium">Proyectos</a>
+                <a href="pages/noticias.html" class="block py-2 text-gray-700 hover:text-primary font-medium">Blog</a>
+                <a href="pages/contacto.html" class="block py-2 text-gray-700 hover:text-primary font-medium">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white pt-24 pb-32 overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/3 translate-y-1/3"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
+                Bienvenido a Mi Blog
+            </h1>
+            <p class="text-xl md:text-2xl text-blue-100 mb-4">
+                Desarrollo Web, Tecnología y Experiencias de Programación
+            </p>
+            <span class="inline-block bg-white/20 backdrop-blur-sm px-6 py-2 rounded-full text-sm font-medium">
+                ✨ Últimos artículos y tutoriales
+            </span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 -mt-16">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Blog Posts -->
+            <main class="lg:col-span-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                <!-- Post Trending 1 -->
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 relative group">
+                    <div class="absolute top-4 right-4 z-10">
+                        <span class="bg-gradient-to-r from-red-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+                            🔥 TRENDING
+                        </span>
+                    </div>
+                    <img src="assets/images/4.jpg" alt="IA Generativa 2025" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-3 text-xs">
+                            <span class="text-gray-500">📅 15 Oct 2025</span>
+                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-semibold">AI/ML</span>
+                            <span class="text-gray-500">👤 Mi Blog</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 text-gray-900 group-hover:text-primary transition-colors">
+                            🤖 IA Generativa 2025: ChatGPT-5, Claude 4 y Gemini Ultra
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            ACTUALIZADO HOY - La revolución de IA generativa ha llegado. ChatGPT-5 con memoria persistente, Claude 4 con razonamiento cuántico, y Gemini Ultra 2.0 integrado en todo Android.
+                        </p>
+                        <a href="pages/articles/articulo-ia-generativa-2025.html" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all">
+                            Leer más 
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post Viral -->
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 relative group">
+                    <div class="absolute top-4 right-4 z-10">
+                        <span class="bg-gradient-to-r from-green-500 to-teal-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            ⚡ VIRAL
+                        </span>
+                    </div>
+                    <img src="assets/images/5.jpg" alt="React 19" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-3 text-xs">
+                            <span class="text-gray-500">📅 15 Oct 2025</span>
+                            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-semibold">React</span>
+                            <span class="text-gray-500">👤 Mi Blog</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 text-gray-900 group-hover:text-primary transition-colors">
+                            ⚛️ React 19: Server Components Revolution
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            LANZAMIENTO OFICIAL - React 19 revoluciona el desarrollo frontend con Server Components nativos, React Compiler automático y Actions server-side.
+                        </p>
+                        <a href="pages/articles/articulo-react-19-2025.html" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all">
+                            Leer artículo completo 
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post Trending 2 -->
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 relative group">
+                    <div class="absolute top-4 right-4 z-10">
+                        <span class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            🚀 HOT
+                        </span>
+                    </div>
+                    <img src="assets/images/4.jpg" alt="Next.js 15" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-3 text-xs">
+                            <span class="text-gray-500">📅 15 Oct 2025</span>
+                            <span class="bg-gray-800 text-white px-2 py-1 rounded-full font-semibold">Framework</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 text-gray-900 group-hover:text-primary transition-colors">
+                            🔥 Next.js 15: App Router 2.0 - Framework Definitivo 2025
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            LANZAMIENTO EXPLOSIVO - Turbopack estable, React 19 nativo, streaming mejorado y optimizaciones que hacen que las apps sean 4x más rápidas.
+                        </p>
+                        <a href="pages/articles/articulo-nextjs-15-2025.html" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all">
+                            Leer artículo completo
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post Viral 2 -->
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 relative group">
+                    <div class="absolute top-4 right-4 z-10">
+                        <span class="bg-gradient-to-r from-green-500 to-teal-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            ⚡ VIRAL
+                        </span>
+                    </div>
+                    <img src="assets/images/6.jpg" alt="TypeScript 5.3" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-3 text-xs">
+                            <span class="text-gray-500">📅 12 Oct 2025</span>
+                            <span class="bg-blue-600 text-white px-2 py-1 rounded-full font-semibold">TypeScript</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 text-gray-900 group-hover:text-primary transition-colors">
+                            ⚡ TypeScript 5.3: Decorators & Pattern Matching
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            LANZAMIENTO HISTÓRICO - Decorators estables, Pattern Matching nativo, Union Types ultra-optimizados y performance 3x mejorada.
+                        </p>
+                        <a href="pages/articles/articulo-typescript-53-2025.html" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all">
+                            Leer artículo completo 
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post Normal 1 -->
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                    <img src="assets/images/4.jpg" alt="CSS Grid y Flexbox" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-3 text-xs">
+                            <span class="text-gray-500">📅 5 Oct 2025</span>
+                            <span class="bg-pink-100 text-pink-700 px-2 py-1 rounded-full font-semibold">CSS</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 text-gray-900 group-hover:text-primary transition-colors">
+                            🎨 CSS Grid y Flexbox: Guía Completa 2025
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            GUÍA DEFINITIVA - Domina los layouts modernos con CSS Grid y Flexbox. Aprende cuándo usar cada uno, técnicas avanzadas como subgrid, grid-areas.
+                        </p>
+                        <a href="pages/articles/articulo-css-moderno.html" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all">
+                            Leer artículo completo 
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post Normal 2 -->
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                    <img src="assets/images/5.jpg" alt="JavaScript ES6+" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-3 text-xs">
+                            <span class="text-gray-500">📅 12 Oct 2025</span>
+                            <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full font-semibold">JavaScript</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 text-gray-900 group-hover:text-primary transition-colors">
+                            ⚡ JavaScript ES6+: Async/Await y Módulos Modernos
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            TUTORIAL COMPLETO - JavaScript moderno al máximo nivel: async/await para manejo de APIs, destructuring avanzado, spread/rest operators.
+                        </p>
+                        <a href="pages/articles/articulo-javascript-es6.html" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all">
+                            Leer artículo completo
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post Normal 3 -->
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                    <img src="assets/images/4.jpg" alt="Responsive Design" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-3 text-xs">
+                            <span class="text-gray-500">📅 10 Oct 2025</span>
+                            <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">Design</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 text-gray-900 group-hover:text-primary transition-colors">
+                            📱 Mobile-First Design: Estrategia Responsive 2025
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            CASO DE ÉXITO REAL - Metodología mobile-first paso a paso: breakpoints inteligentes, fluid typography, imágenes responsivas con srcset.
+                        </p>
+                        <a href="pages/articles/articulo-mobile-first.html" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all">
+                            Leer artículo completo 
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post Normal 4 -->
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                    <img src="assets/images/5.jpg" alt="Node.js" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-3 text-xs">
+                            <span class="text-gray-500">📅 8 Oct 2025</span>
+                            <span class="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full font-semibold">Backend</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 text-gray-900 group-hover:text-primary transition-colors">
+                            🚀 Node.js Backend: API REST desde Cero
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            PROYECTO COMPLETO - Crea tu primera API REST profesional con Node.js y Express: configuración del entorno, manejo de rutas, middleware.
+                        </p>
+                        <a href="pages/articles/articulo-nodejs-principiantes.html" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all">
+                            Leer artículo completo 
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                </div>
+
+                <!-- Pagination -->
+                <nav class="flex items-center justify-center gap-2 mt-8">
+                    <a href="#" class="px-4 py-2 bg-white rounded-lg text-gray-700 hover:bg-primary hover:text-white transition-colors shadow">
+                        ← Anterior
+                    </a>
+                    <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg shadow font-semibold">1</a>
+                    <a href="#" class="px-4 py-2 bg-white rounded-lg text-gray-700 hover:bg-primary hover:text-white transition-colors shadow">2</a>
+                    <a href="#" class="px-4 py-2 bg-white rounded-lg text-gray-700 hover:bg-primary hover:text-white transition-colors shadow">3</a>
+                    <a href="#" class="px-4 py-2 bg-white rounded-lg text-gray-700 hover:bg-primary hover:text-white transition-colors shadow">4</a>
+                    <a href="#" class="px-4 py-2 bg-white rounded-lg text-gray-700 hover:bg-primary hover:text-white transition-colors shadow">
+                        Siguiente →
+                    </a>
+                </nav>
+            </main>
+                
+            <!-- Sidebar -->
+            <aside class="lg:col-span-1 space-y-6">
+                
+                <!-- Search Widget -->
+                <div class="bg-white rounded-2xl shadow-lg p-6">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        Buscar Artículos
+                    </h3>
+                    <div class="relative">
+                        <input type="text" placeholder="Buscar en el blog..." 
+                               class="w-full px-4 py-3 pr-12 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none transition-colors">
+                        <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-white p-2 rounded-lg hover:bg-primary/90 transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Categories Widget -->
+                <div class="bg-white rounded-2xl shadow-lg p-6">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                        </svg>
+                        Categorías
+                    </h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="flex items-center justify-between px-4 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all group">
+                            <span class="text-gray-700 group-hover:text-primary transition-colors">CSS</span>
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full group-hover:bg-primary group-hover:text-white transition-colors">(12)</span>
+                        </a></li>
+                        <li><a href="#" class="flex items-center justify-between px-4 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all group">
+                            <span class="text-gray-700 group-hover:text-primary transition-colors">JavaScript</span>
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full group-hover:bg-primary group-hover:text-white transition-colors">(8)</span>
+                        </a></li>
+                        <li><a href="#" class="flex items-center justify-between px-4 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all group">
+                            <span class="text-gray-700 group-hover:text-primary transition-colors">Backend</span>
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full group-hover:bg-primary group-hover:text-white transition-colors">(6)</span>
+                        </a></li>
+                        <li><a href="#" class="flex items-center justify-between px-4 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all group">
+                            <span class="text-gray-700 group-hover:text-primary transition-colors">Design</span>
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full group-hover:bg-primary group-hover:text-white transition-colors">(10)</span>
+                        </a></li>
+                        <li><a href="#" class="flex items-center justify-between px-4 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all group">
+                            <span class="text-gray-700 group-hover:text-primary transition-colors">Tutoriales</span>
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full group-hover:bg-primary group-hover:text-white transition-colors">(15)</span>
+                        </a></li>
+                    </ul>
+                </div>
+
+                <!-- Popular Posts Widget -->
+                <div class="bg-white rounded-2xl shadow-lg p-6">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        Artículos Populares
+                    </h3>
+                    <div class="space-y-4">
+                        <article class="flex gap-3 group cursor-pointer">
+                            <img src="assets/images/5.jpg" alt="Popular 1" class="w-20 h-20 object-cover rounded-lg group-hover:scale-105 transition-transform">
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-sm text-gray-900 group-hover:text-primary transition-colors line-clamp-2">CSS Grid: La Guía Definitiva</h4>
+                                <span class="text-xs text-gray-500 flex items-center gap-1 mt-1">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                    10 Oct 2025
+                                </span>
+                            </div>
+                        </article>
+
+                        <article class="flex gap-3 group cursor-pointer">
+                            <img src="assets/images/4.jpg" alt="Popular 2" class="w-20 h-20 object-cover rounded-lg group-hover:scale-105 transition-transform">
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-sm text-gray-900 group-hover:text-primary transition-colors line-clamp-2">JavaScript Async/Await Explicado</h4>
+                                <span class="text-xs text-gray-500 flex items-center gap-1 mt-1">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                    8 Oct 2025
+                                </span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Newsletter Widget -->
+                <div class="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-2xl shadow-lg p-6 text-white">
+                    <h3 class="text-lg font-bold mb-2 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        Suscríbete
+                    </h3>
+                    <p class="text-sm mb-4 text-white/90">Recibe los últimos artículos directamente en tu email</p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="Tu email..." required
+                               class="w-full px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all">
+                        <button type="submit" class="w-full bg-white text-primary font-semibold py-3 rounded-lg hover:bg-gray-100 transition-colors shadow-lg">
+                            Suscribirme 🚀
+                        </button>
+                    </form>
+                </div>
+            </aside>
+            </div>
+        </section>
+        
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-sm text-gray-300">
+                    © 2025 <span class="text-primary font-semibold">Mi Blog de Programación</span>. Todos los derechos reservados.
+                </p>
+                <p class="text-sm text-gray-400">
+                    Desarrollado con ❤️ por <span class="text-white font-semibold">angello</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+
+</html>

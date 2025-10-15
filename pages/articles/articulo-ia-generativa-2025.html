@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Generativa 2025: ChatGPT-5, Claude 4 y Gemini Ultra - Mi Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navegación -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <a href="../../index.html">
+                        <img src="../../imagenes/Logo1.png" alt="Logo" class="h-12 w-12 rounded-full">
+                    </a>
+                    <a href="../../index.html">
+                        <span class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Mi Blog</span>
+                    </a>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../../index.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Inicio</a>
+                    <a href="../nosotros.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Sobre Mí</a>
+                    <a href="../servicios.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Proyectos</a>
+                    <a href="../noticias.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Blog</a>
+                    <a href="../contacto.html" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300">Contacto</a>
+                </div>
+                
+                <!-- Botón menú móvil -->
+                <button class="md:hidden text-gray-700" onclick="toggleMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Menú móvil -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="../../index.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Inicio</a>
+                <a href="../nosotros.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Sobre Mí</a>
+                <a href="../servicios.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Proyectos</a>
+                <a href="../noticias.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Blog</a>
+                <a href="../contacto.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Espaciador para el nav fijo -->
+    <div class="h-20"></div>
+
+    <main class="bg-gray-50 py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <article class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="bg-gradient-to-r from-violet-600 to-fuchsia-600 p-8 text-white">
+                    <div class="flex items-center space-x-2 text-sm mb-4">
+                        <a href="../../index.html" class="hover:underline">Inicio</a>
+                        <span>›</span>
+                        <a href="../noticias.html" class="hover:underline">Blog</a>
+                        <span>›</span>
+                        <span>IA Generativa 2025</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">IA Generativa 2025: Guía Completa para Desarrolladores</h1>
+                    <div class="flex items-center space-x-4 text-sm">
+                        <span>📅 15 de Octubre, 2025</span>
+                        <span>⏱️ 30 min lectura</span>
+                    </div>
+                </div>
+
+                <div class="relative h-96 overflow-hidden">
+                    <img src="../../imagenes/6.jpg" alt="IA Generativa" class="w-full h-full object-cover">
+                </div>
+
+                <div class="p-8 md:p-12">
+                    <div class="bg-violet-50 border-l-4 border-violet-600 p-6 rounded-r-lg mb-8">
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            La <strong>Inteligencia Artificial Generativa</strong> está revolucionando el desarrollo de software. 
+                            Aprende a integrar modelos de lenguaje, generación de imágenes y código en tus aplicaciones con GPT-4, 
+                            Claude, Stable Diffusion y más.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl mb-8">
+                        <h2 class="text-2xl font-bold mb-4">📋 Contenido</h2>
+                        <ul class="space-y-2">
+                            <li><a href="#introduccion" class="text-violet-600 hover:underline">1. Introducción a IA Generativa</a></li>
+                            <li><a href="#modelos" class="text-violet-600 hover:underline">2. Modelos Principales 2025</a></li>
+                            <li><a href="#apis" class="text-violet-600 hover:underline">3. Integrar APIs de IA</a></li>
+                            <li><a href="#prompts" class="text-violet-600 hover:underline">4. Prompt Engineering</a></li>
+                            <li><a href="#casos-uso" class="text-violet-600 hover:underline">5. Casos de Uso Prácticos</a></li>
+                            <li><a href="#etica" class="text-violet-600 hover:underline">6. Ética y Mejores Prácticas</a></li>
+                        </ul>
+                    </div>
+
+                    <section id="introduccion" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">🤖 ¿Qué es la IA Generativa?</h2>
+                        
+                        <p class="text-lg mb-6 text-gray-700">
+                            La IA Generativa se refiere a sistemas de inteligencia artificial capaces de crear contenido nuevo: 
+                            texto, código, imágenes, audio, video y más, a partir de instrucciones en lenguaje natural.
+                        </p>
+
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border-2 border-blue-200">
+                                <div class="text-4xl mb-3">💬</div>
+                                <h3 class="text-xl font-bold mb-2 text-blue-900">LLMs (Large Language Models)</h3>
+                                <p class="text-gray-700">GPT-4, Claude, Gemini - Texto, código, análisis</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl border-2 border-purple-200">
+                                <div class="text-4xl mb-3">🎨</div>
+                                <h3 class="text-xl font-bold mb-2 text-purple-900">Generación de Imágenes</h3>
+                                <p class="text-gray-700">Midjourney, DALL-E 3, Stable Diffusion</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border-2 border-green-200">
+                                <div class="text-4xl mb-3">🎵</div>
+                                <h3 class="text-xl font-bold mb-2 text-green-900">Audio y Música</h3>
+                                <p class="text-gray-700">Suno, ElevenLabs - Voces, música generada</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-xl border-2 border-orange-200">
+                                <div class="text-4xl mb-3">🎥</div>
+                                <h3 class="text-xl font-bold mb-2 text-orange-900">Video</h3>
+                                <p class="text-gray-700">Runway, Sora - Generación de video</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="modelos" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">🌟 Modelos Principales 2025</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-white p-6 rounded-xl border-2 border-gray-200">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="text-2xl font-bold text-gray-800">GPT-4 Turbo (OpenAI)</h3>
+                                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-bold">Líder</span>
+                                </div>
+                                <p class="text-gray-700 mb-4">
+                                    Modelo más avanzado para texto y código. 128K tokens de contexto, multimodal (texto + imágenes).
+                                </p>
+                                <div class="grid md:grid-cols-3 gap-4 text-sm">
+                                    <div class="bg-blue-50 p-3 rounded">
+                                        <strong>Contexto:</strong> 128K tokens
+                                    </div>
+                                    <div class="bg-purple-50 p-3 rounded">
+                                        <strong>Costo:</strong> $0.01/1K tokens
+                                    </div>
+                                    <div class="bg-green-50 p-3 rounded">
+                                        <strong>Uso:</strong> Chatbots, análisis, código
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-xl border-2 border-gray-200">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="text-2xl font-bold text-gray-800">Claude 3 Opus (Anthropic)</h3>
+                                    <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-bold">Premium</span>
+                                </div>
+                                <p class="text-gray-700 mb-4">
+                                    Excelente para razonamiento complejo y análisis largo. 200K tokens de contexto.
+                                </p>
+                                <div class="grid md:grid-cols-3 gap-4 text-sm">
+                                    <div class="bg-blue-50 p-3 rounded">
+                                        <strong>Contexto:</strong> 200K tokens
+                                    </div>
+                                    <div class="bg-purple-50 p-3 rounded">
+                                        <strong>Costo:</strong> $0.015/1K tokens
+                                    </div>
+                                    <div class="bg-green-50 p-3 rounded">
+                                        <strong>Uso:</strong> Análisis, investigación
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-xl border-2 border-gray-200">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="text-2xl font-bold text-gray-800">Gemini Ultra (Google)</h3>
+                                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-bold">Multimodal</span>
+                                </div>
+                                <p class="text-gray-700 mb-4">
+                                    Nativo multimodal: texto, imágenes, audio, video en un solo modelo.
+                                </p>
+                                <div class="grid md:grid-cols-3 gap-4 text-sm">
+                                    <div class="bg-blue-50 p-3 rounded">
+                                        <strong>Contexto:</strong> 1M tokens
+                                    </div>
+                                    <div class="bg-purple-50 p-3 rounded">
+                                        <strong>Costo:</strong> $0.007/1K tokens
+                                    </div>
+                                    <div class="bg-green-50 p-3 rounded">
+                                        <strong>Uso:</strong> Todo tipo de contenido
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="apis" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">🔌 Integrar APIs de IA</h2>
+                        
+                        <h3 class="text-2xl font-bold mb-4">OpenAI API (GPT-4)</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>// Instalar SDK
+npm install openai
+
+// Usar la API
+import OpenAI from 'openai'
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+})
+
+async function chat(mensaje) {
+  const completion = await openai.chat.completions.create({
+    model: "gpt-4-turbo",
+    messages: [
+      {
+        role: "system",
+        content: "Eres un asistente útil y profesional."
+      },
+      {
+        role: "user",
+        content: mensaje
+      }
+    ],
+    temperature: 0.7,
+    max_tokens: 500
+  })
+  
+  return completion.choices[0].message.content
+}
+
+// Usar
+const respuesta = await chat("Explica qué es React")
+console.log(respuesta)</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">Streaming de Respuestas</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>async function chatStream(mensaje) {
+  const stream = await openai.chat.completions.create({
+    model: "gpt-4-turbo",
+    messages: [{ role: "user", content: mensaje }],
+    stream: true
+  })
+  
+  for await (const chunk of stream) {
+    const content = chunk.choices[0]?.delta?.content || ''
+    process.stdout.write(content)
+  }
+}
+
+await chatStream("Escribe un poema sobre JavaScript")</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">Generación de Imágenes (DALL-E 3)</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>async function generarImagen(prompt) {
+  const response = await openai.images.generate({
+    model: "dall-e-3",
+    prompt: prompt,
+    size: "1024x1024",
+    quality: "hd",
+    n: 1
+  })
+  
+  return response.data[0].url
+}
+
+const url = await generarImagen(
+  "Un desarrollador programando en una oficina futurista, estilo cyberpunk"
+)
+console.log(url)</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">Análisis de Imágenes (Vision)</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>async function analizarImagen(imagenUrl, pregunta) {
+  const response = await openai.chat.completions.create({
+    model: "gpt-4-vision-preview",
+    messages: [
+      {
+        role: "user",
+        content: [
+          { type: "text", text: pregunta },
+          { type: "image_url", image_url: { url: imagenUrl } }
+        ]
+      }
+    ]
+  })
+  
+  return response.choices[0].message.content
+}
+
+const analisis = await analizarImagen(
+  "https://ejemplo.com/interfaz.png",
+  "¿Qué problemas de UX tiene esta interfaz?"
+)</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="prompts" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">📝 Prompt Engineering</h2>
+                        
+                        <p class="text-lg mb-6 text-gray-700">
+                            El Prompt Engineering es el arte de escribir instrucciones efectivas para obtener los mejores resultados de los modelos de IA.
+                        </p>
+
+                        <h3 class="text-2xl font-bold mb-4">Técnicas Fundamentales</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-blue-50 p-6 rounded-xl">
+                                <h4 class="text-xl font-bold mb-3 text-blue-900">1. Ser Específico</h4>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-red-50 p-4 rounded border-l-4 border-red-500">
+                                        <p class="font-bold text-red-900 mb-2">❌ Vago</p>
+                                        <p class="text-gray-700">"Crea una función"</p>
+                                    </div>
+                                    <div class="bg-green-50 p-4 rounded border-l-4 border-green-500">
+                                        <p class="font-bold text-green-900 mb-2">✅ Específico</p>
+                                        <p class="text-gray-700">"Crea una función en TypeScript que valide emails usando regex y retorne boolean"</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-purple-50 p-6 rounded-xl">
+                                <h4 class="text-xl font-bold mb-3 text-purple-900">2. Dar Contexto</h4>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                    <pre class="text-sm"><code>Eres un experto desarrollador senior con 10 años de experiencia en React.
+Estoy construyendo una app de e-commerce con Next.js 15.
+Necesito un componente de carrito de compras que:
+- Maneje estado con Zustand
+- Persista en localStorage
+- Muestre total con descuentos
+- Sea accesible (ARIA)
+
+Genera el código completo con TypeScript y comentarios explicativos.</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="bg-green-50 p-6 rounded-xl">
+                                <h4 class="text-xl font-bold mb-3 text-green-900">3. Few-Shot Learning</h4>
+                                <p class="text-gray-700 mb-3">Proporciona ejemplos de lo que quieres:</p>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                    <pre class="text-sm"><code>Convierte estas descripciones en código SQL:
+
+Ejemplo 1:
+Input: "Usuarios que se registraron hoy"
+Output: SELECT * FROM users WHERE DATE(created_at) = CURDATE()
+
+Ejemplo 2:
+Input: "Posts con más de 100 likes"
+Output: SELECT * FROM posts WHERE likes > 100
+
+Ahora hazlo con:
+Input: "Productos sin stock ordenados por precio"
+Output:</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="bg-orange-50 p-6 rounded-xl">
+                                <h4 class="text-xl font-bold mb-3 text-orange-900">4. Chain of Thought</h4>
+                                <p class="text-gray-700 mb-3">Pide que piense paso a paso:</p>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                    <pre class="text-sm"><code>Analiza este código y encuentra el bug.
+Piensa paso a paso:
+1. Identifica qué hace el código
+2. Analiza cada línea
+3. Encuentra posibles errores
+4. Explica la solución
+
+[código aquí]</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="casos-uso" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">💡 Casos de Uso Prácticos</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-white p-6 rounded-xl border-2 border-gray-200">
+                                <h3 class="text-xl font-bold mb-3">1. Chatbot de Soporte</h3>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                    <pre class="text-sm"><code>const systemPrompt = \`
+Eres un asistente de soporte técnico para nuestra app.
+Base de conocimientos:
+- Pricing: $19/mes básico, $49/mes pro
+- Reset password: Click "Forgot password" en login
+- Contact: support@miapp.com
+
+Responde de forma amigable y concisa.
+Si no sabes algo, deriva a soporte humano.
+\`
+
+async function handleSupportChat(userMessage) {
+  const response = await openai.chat.completions.create({
+    model: "gpt-4-turbo",
+    messages: [
+      { role: "system", content: systemPrompt },
+      { role: "user", content: userMessage }
+    ]
+  })
+  
+  return response.choices[0].message.content
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-xl border-2 border-gray-200">
+                                <h3 class="text-xl font-bold mb-3">2. Generador de Contenido SEO</h3>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                    <pre class="text-sm"><code>async function generarArticuloSEO(keyword, outline) {
+  const prompt = \`
+Escribe un artículo de blog SEO-optimizado:
+
+Keyword principal: "${keyword}"
+Estructura: ${outline}
+
+Requisitos:
+- 1500 palabras mínimo
+- H2 y H3 bien estructurados
+- Meta descripción (150 caracteres)
+- Keywords naturalmente integradas
+- Tono profesional pero accesible
+- Incluye llamados a la acción
+  \`
+  
+  const article = await openai.chat.completions.create({
+    model: "gpt-4-turbo",
+    messages: [{ role: "user", content: prompt }],
+    temperature: 0.7,
+    max_tokens: 3000
+  })
+  
+  return article.choices[0].message.content
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-xl border-2 border-gray-200">
+                                <h3 class="text-xl font-bold mb-3">3. Code Review Automático</h3>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                    <pre class="text-sm"><code>async function reviewCode(codigo) {
+  const prompt = \`
+Revisa este código y proporciona:
+1. Bugs potenciales
+2. Mejoras de performance
+3. Seguridad
+4. Best practices violadas
+5. Sugerencias de refactoring
+
+Código:
+\`\`\`
+${codigo}
+\`\`\`
+
+Formato de respuesta en JSON:
+{
+  "bugs": [],
+  "performance": [],
+  "security": [],
+  "bestPractices": [],
+  "suggestions": []
+}
+  \`
+  
+  const review = await openai.chat.completions.create({
+    model: "gpt-4-turbo",
+    messages: [{ role: "user", content: prompt }],
+    response_format: { type: "json_object" }
+  })
+  
+  return JSON.parse(review.choices[0].message.content)
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="etica" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">⚖️ Ética y Mejores Prácticas</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
+                                <h3 class="text-xl font-bold mb-3 text-red-900">🚫 Evita</h3>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-start"><span class="text-red-600 mr-2">✗</span> Usar IA para generar desinformación</li>
+                                    <li class="flex items-start"><span class="text-red-600 mr-2">✗</span> Procesar datos sensibles sin encriptación</li>
+                                    <li class="flex items-start"><span class="text-red-600 mr-2">✗</span> Presentar contenido IA como humano sin disclosure</li>
+                                    <li class="flex items-start"><span class="text-red-600 mr-2">✗</span> Reemplazar completamente el juicio humano en decisiones críticas</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
+                                <h3 class="text-xl font-bold mb-3 text-green-900">✅ Mejores Prácticas</h3>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-start"><span class="text-green-600 mr-2">✓</span> Sé transparente sobre el uso de IA</li>
+                                    <li class="flex items-start"><span class="text-green-600 mr-2">✓</span> Valida y verifica las respuestas de IA</li>
+                                    <li class="flex items-start"><span class="text-green-600 mr-2">✓</span> Implementa rate limiting y moderación</li>
+                                    <li class="flex items-start"><span class="text-green-600 mr-2">✓</span> Protege la privacidad del usuario</li>
+                                    <li class="flex items-start"><span class="text-green-600 mr-2">✓</span> Monitorea costos y uso</li>
+                                    <li class="flex items-start"><span class="text-green-600 mr-2">✓</span> Ten un plan de fallback si la API falla</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-blue-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-3 text-blue-900">💰 Optimización de Costos</h3>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                    <pre class="text-sm"><code>// Cache de respuestas
+const cache = new Map()
+
+async function chatWithCache(mensaje) {
+  const cacheKey = mensaje.toLowerCase().trim()
+  
+  if (cache.has(cacheKey)) {
+    return cache.get(cacheKey)
+  }
+  
+  const respuesta = await chat(mensaje)
+  cache.set(cacheKey, respuesta)
+  
+  return respuesta
+}
+
+// Limitar tokens
+const response = await openai.chat.completions.create({
+  model: "gpt-4-turbo",
+  messages: messages,
+  max_tokens: 500,  // Limita costo
+  temperature: 0.7
+})</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="bg-gradient-to-r from-violet-600 to-fuchsia-600 p-8 rounded-xl text-white mt-12">
+                        <h2 class="text-2xl font-bold mb-4">🎯 Conclusión</h2>
+                        <p class="text-lg leading-relaxed">
+                            La IA Generativa está transformando el desarrollo de software. Desde chatbots hasta análisis de código, 
+                            las posibilidades son infinitas. Lo importante es usarla éticamente, entender sus limitaciones y 
+                            combinarla con el juicio humano. En 2025, dominar estas herramientas es esencial para cualquier desarrollador.
+                        </p>
+                    </div>
+
+                    <div class="flex justify-between items-center mt-12 pt-8 border-t">
+                        <a href="articulo-typescript-53-2025.html" class="text-violet-600 hover:underline">← TypeScript 5.3</a>
+                        <a href="../noticias.html" class="text-gray-600 hover:text-violet-600">Ver todos</a>
+                        <a href="articulo-mobile-first.html" class="text-violet-600 hover:underline">Mobile First →</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2025 Mi Blog. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

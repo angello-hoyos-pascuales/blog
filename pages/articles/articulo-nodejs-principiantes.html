@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js Backend API REST: Guía Completa 2025 - Mi Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navegación -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <a href="../../index.html">
+                        <img src="../../imagenes/Logo1.png" alt="Logo" class="h-12 w-12 rounded-full">
+                    </a>
+                    <a href="../../index.html">
+                        <span class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Mi Blog</span>
+                    </a>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../../index.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Inicio</a>
+                    <a href="../nosotros.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Sobre Mí</a>
+                    <a href="../servicios.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Proyectos</a>
+                    <a href="../noticias.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Blog</a>
+                    <a href="../contacto.html" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300">Contacto</a>
+                </div>
+                
+                <!-- Botón menú móvil -->
+                <button class="md:hidden text-gray-700" onclick="toggleMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Menú móvil -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="../../index.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Inicio</a>
+                <a href="../nosotros.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Sobre Mí</a>
+                <a href="../servicios.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Proyectos</a>
+                <a href="../noticias.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Blog</a>
+                <a href="../contacto.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Espaciador para el nav fijo -->
+    <div class="h-20"></div>
+
+    <main class="bg-gray-50 py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <article class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-emerald-600 p-8 text-white">
+                    <div class="flex items-center space-x-2 text-sm mb-4">
+                        <a href="../../index.html" class="hover:underline">Inicio</a>
+                        <span>›</span>
+                        <a href="../noticias.html" class="hover:underline">Blog</a>
+                        <span>›</span>
+                        <span>Node.js para Principiantes</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Node.js: Guía Completa para Principiantes</h1>
+                    <div class="flex items-center space-x-4 text-sm">
+                        <span>📅 15 de Octubre, 2025</span>
+                        <span>⏱️ 25 min lectura</span>
+                    </div>
+                </div>
+
+                <div class="relative h-96 overflow-hidden">
+                    <img src="../../imagenes/6.jpg" alt="Node.js" class="w-full h-full object-cover">
+                </div>
+
+                <div class="p-8 md:p-12">
+                    <div class="bg-green-50 border-l-4 border-green-600 p-6 rounded-r-lg mb-8">
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            <strong>Node.js</strong> permite ejecutar JavaScript en el servidor, creando aplicaciones backend 
+                            rápidas y escalables. Aprende desde cero: instalación, módulos, Express, APIs REST y bases de datos.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl mb-8">
+                        <h2 class="text-2xl font-bold mb-4">📋 Contenido</h2>
+                        <ul class="space-y-2">
+                            <li><a href="#intro" class="text-green-600 hover:underline">1. ¿Qué es Node.js?</a></li>
+                            <li><a href="#instalacion" class="text-green-600 hover:underline">2. Instalación y Setup</a></li>
+                            <li><a href="#modulos" class="text-green-600 hover:underline">3. Módulos y NPM</a></li>
+                            <li><a href="#express" class="text-green-600 hover:underline">4. Express Framework</a></li>
+                            <li><a href="#api-rest" class="text-green-600 hover:underline">5. Crear una API REST</a></li>
+                            <li><a href="#database" class="text-green-600 hover:underline">6. Conectar Base de Datos</a></li>
+                        </ul>
+                    </div>
+
+                    <section id="intro" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">🚀 ¿Qué es Node.js?</h2>
+                        
+                        <p class="text-lg mb-6 text-gray-700">
+                            Node.js es un entorno de ejecución de JavaScript construido sobre el motor V8 de Chrome. 
+                            Permite ejecutar JavaScript fuera del navegador, en el servidor.
+                        </p>
+
+                        <div class="grid md:grid-cols-3 gap-6 mb-8">
+                            <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl text-center border-2 border-green-200">
+                                <div class="text-4xl mb-3">⚡</div>
+                                <h3 class="text-xl font-bold mb-2 text-green-900">Rápido</h3>
+                                <p class="text-gray-700">Event-driven y asíncrono</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl text-center border-2 border-blue-200">
+                                <div class="text-4xl mb-3">📦</div>
+                                <h3 class="text-xl font-bold mb-2 text-blue-900">NPM</h3>
+                                <p class="text-gray-700">Millones de paquetes</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl text-center border-2 border-purple-200">
+                                <div class="text-4xl mb-3">🌐</div>
+                                <h3 class="text-xl font-bold mb-2 text-purple-900">Full Stack</h3>
+                                <p class="text-gray-700">JavaScript en todo</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 p-6 rounded-xl">
+                            <h3 class="text-xl font-bold mb-3 text-blue-900">💡 ¿Para qué sirve Node.js?</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start"><span class="text-green-600 mr-2">✓</span> APIs REST y GraphQL</li>
+                                <li class="flex items-start"><span class="text-green-600 mr-2">✓</span> Aplicaciones en tiempo real (chat, streaming)</li>
+                                <li class="flex items-start"><span class="text-green-600 mr-2">✓</span> Microservicios</li>
+                                <li class="flex items-start"><span class="text-green-600 mr-2">✓</span> Herramientas de línea de comandos</li>
+                                <li class="flex items-start"><span class="text-green-600 mr-2">✓</span> Server-Side Rendering (SSR)</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section id="instalacion" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">💿 Instalación y Setup</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-gray-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-3">Paso 1: Descargar Node.js</h3>
+                                <p class="text-gray-700 mb-3">Descarga desde <a href="https://nodejs.org" class="text-green-600 hover:underline">nodejs.org</a> (versión LTS recomendada)</p>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                    <pre class="text-sm"><code># Verificar instalación
+node --version  # v20.11.0
+npm --version   # 10.2.4</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-3">Paso 2: Primer Programa</h3>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                    <pre class="text-sm"><code>// app.js
+console.log('¡Hola desde Node.js!')
+
+// Ejecutar
+// node app.js</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-3">Paso 3: Inicializar Proyecto</h3>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                    <pre class="text-sm"><code>mkdir mi-proyecto
+cd mi-proyecto
+npm init -y  # Crea package.json</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="modulos" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">📦 Módulos y NPM</h2>
+                        
+                        <h3 class="text-2xl font-bold mb-4">Módulos Nativos</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>// Sistema de archivos
+const fs = require('fs')
+
+// Leer archivo
+const contenido = fs.readFileSync('archivo.txt', 'utf-8')
+console.log(contenido)
+
+// Escribir archivo
+fs.writeFileSync('nuevo.txt', 'Hola desde Node!')
+
+// HTTP Server
+const http = require('http')
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' })
+  res.end('¡Hola Mundo!')
+})
+
+server.listen(3000, () => {
+  console.log('Servidor en http://localhost:3000')
+})</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">Instalar Paquetes con NPM</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code># Instalar paquetes
+npm install express
+npm install nodemon --save-dev
+
+# Paquetes populares
+npm install mongoose      # MongoDB
+npm install axios         # HTTP requests
+npm install dotenv        # Variables de entorno
+npm install bcrypt        # Encriptación
+npm install jsonwebtoken  # JWT auth</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">Crear tus Propios Módulos</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>// utils/math.js
+function suma(a, b) {
+  return a + b
+}
+
+function resta(a, b) {
+  return a - b
+}
+
+module.exports = { suma, resta }
+
+// app.js
+const { suma, resta } = require('./utils/math')
+
+console.log(suma(5, 3))   // 8
+console.log(resta(10, 4)) // 6</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="express" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">🚂 Express Framework</h2>
+                        
+                        <p class="text-lg mb-6 text-gray-700">
+                            Express es el framework web más popular para Node.js. Simplifica la creación de servidores y APIs.
+                        </p>
+
+                        <h3 class="text-2xl font-bold mb-4">Servidor Básico con Express</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>const express = require('express')
+const app = express()
+
+// Middleware para parsear JSON
+app.use(express.json())
+
+// Ruta principal
+app.get('/', (req, res) => {
+  res.send('¡Hola desde Express!')
+})
+
+// Ruta con parámetros
+app.get('/user/:id', (req, res) => {
+  const userId = req.params.id
+  res.json({ mensaje: `Usuario ${userId}` })
+})
+
+// Iniciar servidor
+const PORT = 3000
+app.listen(PORT, () => {
+  console.log(`Servidor en http://localhost:${PORT}`)
+})</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">Middleware</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>// Middleware de logging
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`)
+  next() // Continuar al siguiente middleware
+})
+
+// Middleware de autenticación
+const authMiddleware = (req, res, next) => {
+  const token = req.headers.authorization
+  
+  if (!token) {
+    return res.status(401).json({ error: 'No autorizado' })
+  }
+  
+  // Verificar token aquí
+  next()
+}
+
+// Usar middleware en ruta específica
+app.get('/admin', authMiddleware, (req, res) => {
+  res.json({ mensaje: 'Área de administrador' })
+})</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="api-rest" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">🔌 Crear una API REST Completa</h2>
+                        
+                        <p class="text-lg mb-6 text-gray-700">
+                            Vamos a crear una API REST para gestionar productos con todas las operaciones CRUD.
+                        </p>
+
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>const express = require('express')
+const app = express()
+
+app.use(express.json())
+
+// Base de datos simulada
+let productos = [
+  { id: 1, nombre: 'Laptop', precio: 999 },
+  { id: 2, nombre: 'Mouse', precio: 25 },
+  { id: 3, nombre: 'Teclado', precio: 75 }
+]
+
+// GET - Obtener todos los productos
+app.get('/api/productos', (req, res) => {
+  res.json(productos)
+})
+
+// GET - Obtener un producto por ID
+app.get('/api/productos/:id', (req, res) => {
+  const producto = productos.find(p => p.id === parseInt(req.params.id))
+  
+  if (!producto) {
+    return res.status(404).json({ error: 'Producto no encontrado' })
+  }
+  
+  res.json(producto)
+})
+
+// POST - Crear nuevo producto
+app.post('/api/productos', (req, res) => {
+  const nuevoProducto = {
+    id: productos.length + 1,
+    nombre: req.body.nombre,
+    precio: req.body.precio
+  }
+  
+  productos.push(nuevoProducto)
+  res.status(201).json(nuevoProducto)
+})
+
+// PUT - Actualizar producto
+app.put('/api/productos/:id', (req, res) => {
+  const producto = productos.find(p => p.id === parseInt(req.params.id))
+  
+  if (!producto) {
+    return res.status(404).json({ error: 'Producto no encontrado' })
+  }
+  
+  producto.nombre = req.body.nombre
+  producto.precio = req.body.precio
+  
+  res.json(producto)
+})
+
+// DELETE - Eliminar producto
+app.delete('/api/productos/:id', (req, res) => {
+  const index = productos.findIndex(p => p.id === parseInt(req.params.id))
+  
+  if (index === -1) {
+    return res.status(404).json({ error: 'Producto no encontrado' })
+  }
+  
+  productos.splice(index, 1)
+  res.json({ mensaje: 'Producto eliminado' })
+})
+
+app.listen(3000, () => {
+  console.log('API REST corriendo en puerto 3000')
+})</code></pre>
+                        </div>
+
+                        <div class="bg-blue-50 p-6 rounded-xl">
+                            <h3 class="text-xl font-bold mb-3 text-blue-900">🧪 Probar la API</h3>
+                            <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                <pre class="text-sm"><code># GET todos los productos
+curl http://localhost:3000/api/productos
+
+# POST crear producto
+curl -X POST http://localhost:3000/api/productos \
+  -H "Content-Type: application/json" \
+  -d '{"nombre":"Monitor","precio":299}'
+
+# PUT actualizar
+curl -X PUT http://localhost:3000/api/productos/1 \
+  -H "Content-Type: application/json" \
+  -d '{"nombre":"Laptop Pro","precio":1299}'
+
+# DELETE eliminar
+curl -X DELETE http://localhost:3000/api/productos/2</code></pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="database" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">🗄️ Conectar Base de Datos</h2>
+                        
+                        <h3 class="text-2xl font-bold mb-4">MongoDB con Mongoose</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>const mongoose = require('mongoose')
+
+// Conectar a MongoDB
+mongoose.connect('mongodb://localhost/miapp', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+
+// Definir Schema
+const productoSchema = new mongoose.Schema({
+  nombre: { type: String, required: true },
+  precio: { type: Number, required: true },
+  stock: { type: Number, default: 0 },
+  createdAt: { type: Date, default: Date.now }
+})
+
+// Crear Modelo
+const Producto = mongoose.model('Producto', productoSchema)
+
+// Crear documento
+const nuevoProducto = new Producto({
+  nombre: 'Laptop',
+  precio: 999,
+  stock: 10
+})
+
+await nuevoProducto.save()
+
+// Consultas
+const productos = await Producto.find()
+const laptop = await Producto.findOne({ nombre: 'Laptop' })
+const caros = await Producto.find({ precio: { $gt: 500 } })
+
+// Actualizar
+await Producto.updateOne(
+  { nombre: 'Laptop' },
+  { $set: { precio: 899 } }
+)
+
+// Eliminar
+await Producto.deleteOne({ nombre: 'Mouse' })</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">PostgreSQL con Prisma</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>// schema.prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Producto {
+  id        Int      @id @default(autoincrement())
+  nombre    String
+  precio    Float
+  stock     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+// app.js
+const { PrismaClient } = require('@prisma/client')
+const prisma = new PrismaClient()
+
+// Crear
+const producto = await prisma.producto.create({
+  data: {
+    nombre: 'Laptop',
+    precio: 999,
+    stock: 10
+  }
+})
+
+// Leer
+const productos = await prisma.producto.findMany()
+const laptop = await prisma.producto.findUnique({
+  where: { id: 1 }
+})
+
+// Actualizar
+await prisma.producto.update({
+  where: { id: 1 },
+  data: { precio: 899 }
+})
+
+// Eliminar
+await prisma.producto.delete({
+  where: { id: 1 }
+})</code></pre>
+                        </div>
+                    </section>
+
+                    <div class="bg-purple-50 p-6 rounded-xl mb-12">
+                        <h3 class="text-2xl font-bold mb-4 text-purple-900">📚 Recursos para Aprender Más</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start"><span class="text-purple-600 mr-2">📖</span> Documentación oficial: <a href="https://nodejs.org" class="text-purple-600 hover:underline">nodejs.org</a></li>
+                            <li class="flex items-start"><span class="text-purple-600 mr-2">📖</span> Express: <a href="https://expressjs.com" class="text-purple-600 hover:underline">expressjs.com</a></li>
+                            <li class="flex items-start"><span class="text-purple-600 mr-2">📖</span> NPM: <a href="https://npmjs.com" class="text-purple-600 hover:underline">npmjs.com</a></li>
+                            <li class="flex items-start"><span class="text-purple-600 mr-2">📖</span> MongoDB: <a href="https://mongodb.com" class="text-purple-600 hover:underline">mongodb.com</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-green-500 to-emerald-600 p-8 rounded-xl text-white mt-12">
+                        <h2 class="text-2xl font-bold mb-4">🎯 Conclusión</h2>
+                        <p class="text-lg leading-relaxed">
+                            Node.js te permite usar JavaScript en el backend, crear APIs REST potentes y aplicaciones escalables. 
+                            Con Express, MongoDB/PostgreSQL y las herramientas del ecosistema NPM, puedes construir aplicaciones 
+                            full-stack completas. ¡Comienza a crear tus propios proyectos hoy!
+                        </p>
+                    </div>
+
+                    <div class="flex justify-between items-center mt-12 pt-8 border-t">
+                        <a href="articulo-javascript-es6.html" class="text-green-600 hover:underline">← JavaScript ES6</a>
+                        <a href="../noticias.html" class="text-gray-600 hover:text-green-600">Ver todos</a>
+                        <a href="articulo-nextjs-15-2025.html" class="text-green-600 hover:underline">Next.js 15 →</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2025 Mi Blog. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

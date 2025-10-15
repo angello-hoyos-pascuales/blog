@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovaciones en CSS Moderno: Grid y Flexbox - Mi Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navegación -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <a href="../../index.html">
+                        <img src="../../imagenes/Logo1.png" alt="Logo" class="h-12 w-12 rounded-full">
+                    </a>
+                    <a href="../../index.html">
+                        <span class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Mi Blog</span>
+                    </a>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../../index.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Inicio</a>
+                    <a href="../nosotros.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Sobre Mí</a>
+                    <a href="../servicios.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Proyectos</a>
+                    <a href="../noticias.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Blog</a>
+                    <a href="../contacto.html" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300">Contacto</a>
+                </div>
+                
+                <!-- Botón menú móvil -->
+                <button class="md:hidden text-gray-700" onclick="toggleMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Menú móvil -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="../../index.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Inicio</a>
+                <a href="../nosotros.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Sobre Mí</a>
+                <a href="../servicios.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Proyectos</a>
+                <a href="../noticias.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Blog</a>
+                <a href="../contacto.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Espaciador para el nav fijo -->
+    <div class="h-20"></div>
+
+    <main class="bg-gray-50 py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <article class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="bg-gradient-to-r from-pink-500 to-rose-600 p-8 text-white">
+                    <div class="flex items-center space-x-2 text-sm mb-4">
+                        <a href="../../index.html" class="hover:underline">Inicio</a>
+                        <span>›</span>
+                        <a href="../noticias.html" class="hover:underline">Blog</a>
+                        <span>›</span>
+                        <span>CSS Moderno</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">CSS Moderno: Grid, Flexbox y Animaciones</h1>
+                    <div class="flex items-center space-x-4 text-sm">
+                        <span>📅 15 de Octubre, 2025</span>
+                        <span>⏱️ 22 min lectura</span>
+                    </div>
+                </div>
+
+                <div class="relative h-96 overflow-hidden">
+                    <img src="../../imagenes/4.jpg" alt="CSS Moderno" class="w-full h-full object-cover">
+                </div>
+
+                <div class="p-8 md:p-12">
+                    <div class="bg-pink-50 border-l-4 border-pink-600 p-6 rounded-r-lg mb-8">
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            Domina las características modernas de CSS: <strong>Grid Layout</strong>, <strong>Flexbox</strong>, 
+                            <strong>Custom Properties</strong>, animaciones y mucho más. Crea layouts profesionales y responsivos sin frameworks.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl mb-8">
+                        <h2 class="text-2xl font-bold mb-4">📋 Contenido</h2>
+                        <ul class="space-y-2">
+                            <li><a href="#flexbox" class="text-pink-600 hover:underline">1. Flexbox para Layouts</a></li>
+                            <li><a href="#grid" class="text-pink-600 hover:underline">2. CSS Grid</a></li>
+                            <li><a href="#variables" class="text-pink-600 hover:underline">3. Custom Properties (Variables)</a></li>
+                            <li><a href="#animaciones" class="text-pink-600 hover:underline">4. Animaciones y Transitions</a></li>
+                            <li><a href="#responsive" class="text-pink-600 hover:underline">5. Diseño Responsivo</a></li>
+                        </ul>
+                    </div>
+
+                    <section id="flexbox" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">📐 Flexbox: Layouts en Una Dimensión</h2>
+                        
+                        <p class="text-lg mb-6 text-gray-700">
+                            Flexbox es perfecto para layouts en una dirección (horizontal o vertical): navegaciones, 
+                            centrado, distribución de espacios.
+                        </p>
+
+                        <h3 class="text-2xl font-bold mb-4">Conceptos Básicos</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>.contenedor {
+  display: flex;
+  justify-content: space-between; /* Eje principal */
+  align-items: center;            /* Eje cruzado */
+  gap: 1rem;                      /* Espacio entre items */
+}
+
+/* Dirección */
+.vertical {
+  flex-direction: column;
+}
+
+.horizontal {
+  flex-direction: row;
+}
+
+/* Centrado perfecto */
+.centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">Ejemplo: Navegación</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>/* HTML */
+&lt;nav class="navbar"&gt;
+  &lt;div class="logo"&gt;Mi Sitio&lt;/div&gt;
+  &lt;ul class="menu"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+/* CSS */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #3b82f6;
+}</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">Items Flexibles</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>.item {
+  flex: 1;        /* Crece y se encoge igualmente */
+}
+
+.item-fijo {
+  flex: 0 0 200px; /* No crece, no encoge, 200px fijo */
+}
+
+.item-crecer {
+  flex-grow: 2;    /* Crece el doble que otros */
+}
+
+/* Ejemplo: Sidebar + Contenido */
+.layout {
+  display: flex;
+}
+
+.sidebar {
+  flex: 0 0 250px;  /* Ancho fijo 250px */
+}
+
+.contenido {
+  flex: 1;          /* Ocupa el espacio restante */
+}</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="grid" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">🎛️ CSS Grid: Layouts en Dos Dimensiones</h2>
+                        
+                        <p class="text-lg mb-6 text-gray-700">
+                            CSS Grid es perfecto para layouts complejos en filas y columnas: galerías, dashboards, 
+                            layouts de página completos.
+                        </p>
+
+                        <h3 class="text-2xl font-bold mb-4">Grid Básico</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  gap: 2rem;
+}
+
+/* Columnas con tamaños específicos */
+.grid-mixed {
+  grid-template-columns: 250px 1fr 200px;
+  /* Sidebar | Contenido | Ads */
+}
+
+/* Auto-fill: Responsive automático */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">Layout Completo de Página</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>/* HTML */
+&lt;div class="page-layout"&gt;
+  &lt;header&gt;Header&lt;/header&gt;
+  &lt;nav&gt;Navegación&lt;/nav&gt;
+  &lt;main&gt;Contenido Principal&lt;/main&gt;
+  &lt;aside&gt;Sidebar&lt;/aside&gt;
+  &lt;footer&gt;Footer&lt;/footer&gt;
+&lt;/div&gt;
+
+/* CSS */
+.page-layout {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav    main   aside"
+    "footer footer footer";
+  grid-template-columns: 200px 1fr 250px;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  gap: 1rem;
+}
+
+header { grid-area: header; }
+nav    { grid-area: nav; }
+main   { grid-area: main; }
+aside  { grid-area: aside; }
+footer { grid-area: footer; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-layout {
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "aside"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+}</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">Galería de Imágenes</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.imagen-destacada {
+  grid-column: span 2;  /* Ocupa 2 columnas */
+  grid-row: span 2;     /* Ocupa 2 filas */
+}
+
+.galeria img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="variables" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">🎨 Custom Properties (Variables CSS)</h2>
+                        
+                        <p class="text-lg mb-6 text-gray-700">
+                            Las variables CSS permiten reutilizar valores y crear temas dinámicos de forma nativa.
+                        </p>
+
+                        <h3 class="text-2xl font-bold mb-4">Sistema de Colores</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>:root {
+  /* Colores principales */
+  --color-primary: #3b82f6;
+  --color-secondary: #8b5cf6;
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+  
+  /* Grises */
+  --gray-50: #f9fafb;
+  --gray-900: #111827;
+  
+  /* Espaciado */
+  --spacing-xs: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  
+  /* Tipografía */
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+/* Usar variables */
+.btn-primary {
+  background: var(--color-primary);
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-family: var(--font-sans);
+}
+
+.card {
+  background: var(--gray-50);
+  color: var(--gray-900);
+  margin: var(--spacing-lg);
+}</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">Dark Mode</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>:root {
+  --bg-color: white;
+  --text-color: #111827;
+  --border-color: #e5e7eb;
+}
+
+[data-theme="dark"] {
+  --bg-color: #111827;
+  --text-color: #f9fafb;
+  --border-color: #374151;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.card {
+  border: 1px solid var(--border-color);
+}
+
+/* Toggle con JavaScript */
+const toggle = document.querySelector('#theme-toggle')
+toggle.addEventListener('click', () => {
+  const theme = document.documentElement.getAttribute('data-theme')
+  document.documentElement.setAttribute(
+    'data-theme',
+    theme === 'dark' ? 'light' : 'dark'
+  )
+})</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="animaciones" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">✨ Animaciones y Transitions</h2>
+                        
+                        <h3 class="text-2xl font-bold mb-4">Transitions</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>.button {
+  background: #3b82f6;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  
+  /* Transición suave */
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+/* Múltiples propiedades */
+.card {
+  transition: 
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">Keyframe Animations</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>/* Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.elemento {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Loading Spinner */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f4f6;
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Bounce */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.icono {
+  animation: bounce 2s ease-in-out infinite;
+}</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="responsive" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">📱 Diseño Responsivo</h2>
+                        
+                        <h3 class="text-2xl font-bold mb-4">Media Queries</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>/* Mobile First */
+.container {
+  padding: 1rem;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+/* Grid responsivo */
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">Container Queries (Nuevo)</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>.card-container {
+  container-type: inline-size;
+}
+
+.card {
+  padding: 1rem;
+}
+
+/* Basado en el contenedor, no en la ventana */
+@container (min-width: 400px) {
+  .card {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+  }
+}</code></pre>
+                        </div>
+                    </section>
+
+                    <div class="bg-gradient-to-r from-pink-500 to-rose-600 p-8 rounded-xl text-white mt-12">
+                        <h2 class="text-2xl font-bold mb-4">🎯 Conclusión</h2>
+                        <p class="text-lg leading-relaxed">
+                            CSS moderno ofrece herramientas poderosas para crear layouts profesionales sin necesidad de frameworks. 
+                            Flexbox, Grid, Custom Properties y animaciones te permiten construir interfaces hermosas y responsivas 
+                            con código nativo y eficiente.
+                        </p>
+                    </div>
+
+                    <div class="flex justify-between items-center mt-12 pt-8 border-t">
+                        <a href="articulo-mobile-first.html" class="text-pink-600 hover:underline">← Mobile First</a>
+                        <a href="../noticias.html" class="text-gray-600 hover:text-pink-600">Ver todos</a>
+                        <a href="articulo-javascript-es6.html" class="text-pink-600 hover:underline">JavaScript ES6 →</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2025 Mi Blog. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

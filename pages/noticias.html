@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Mi Blog de Programación</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#8b5cf6'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <!-- Navigation -->
+        <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-md z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <div class="flex-shrink-0">
+                        <a href="../index.html" class="flex items-center gap-2">
+                            <img src="../assets/images/Logo1.png" alt="Logo" class="h-12 w-auto">
+                            <span class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Blog</span>
+                        </a>
+                    </div>
+                    
+                    <div class="hidden md:flex items-center gap-8">
+                        <a href="../index.html" class="text-gray-700 hover:text-primary transition-colors font-medium">Inicio</a>
+                        <a href="nosotros.html" class="text-gray-700 hover:text-primary transition-colors font-medium">Sobre Mí</a>
+                        <a href="servicios.html" class="text-gray-700 hover:text-primary transition-colors font-medium">Proyectos</a>
+                        <a href="noticias.html" class="text-primary font-semibold">Blog</a>
+                        <a href="contacto.html" class="text-gray-700 hover:text-primary transition-colors font-medium">Contacto</a>
+                    </div>
+                    
+                    <button onclick="toggleMenu()" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div id="mobile-menu" class="hidden md:hidden pb-4">
+                    <a href="../index.html" class="block py-2 text-gray-700 hover:text-primary transition-colors">Inicio</a>
+                    <a href="nosotros.html" class="block py-2 text-gray-700 hover:text-primary transition-colors">Sobre Mí</a>
+                    <a href="servicios.html" class="block py-2 text-gray-700 hover:text-primary transition-colors">Proyectos</a>
+                    <a href="noticias.html" class="block py-2 text-primary font-semibold">Blog</a>
+                    <a href="contacto.html" class="block py-2 text-gray-700 hover:text-primary transition-colors">Contacto</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="relative bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white pt-32 pb-20">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00em0wLTEyYzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0IDEuNzkgNCA0IDQgNC0xLjc5IDQtNHptMC0xMmMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAxLjc5IDQgNCA0IDQtMS43OSA0LTR6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-10"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
+                    📰 Últimas Noticias y Actualizaciones
+                </h1>
+                <p class="text-xl text-white/90">Mantente al día con las últimas tendencias en desarrollo web</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- News List -->
+                <div class="lg:col-span-2">
+                    <!-- Featured Article -->
+                    <article class="bg-white rounded-2xl shadow-lg overflow-hidden mb-8 hover:shadow-2xl transition-shadow duration-300 group">
+                        <div class="grid md:grid-cols-2 gap-0">
+                            <img src="../assets/images/4.jpg" alt="Noticia Principal" class="w-full h-64 md:h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="p-6 md:p-8 flex flex-col justify-center">
+                                <span class="inline-block bg-gradient-to-r from-primary to-secondary text-white text-xs font-bold px-3 py-1 rounded-full mb-3 w-fit">
+                                    🚀 Tecnología
+                                </span>
+                                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
+                                    Las Nuevas Tendencias en Desarrollo Web 2025
+                                </h2>
+                                <p class="text-sm text-gray-500 mb-3 flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                    14 de octubre, 2025
+                                </p>
+                                <p class="text-gray-600 mb-4 line-clamp-3">
+                                    El mundo del desarrollo web continúa evolucionando a un ritmo acelerado. Este año hemos visto el surgimiento de nuevas tecnologías y metodologías que están transformando la manera en que creamos experiencias digitales...
+                                </p>
+                                <a href="#" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all">
+                                    Leer artículo completo
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- News Grid -->
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        
+                        <!-- Article 1 -->
+                        <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                            <img src="../assets/images/5.jpg" alt="CSS Grid" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                            <div class="p-6">
+                                <span class="inline-block bg-pink-100 text-pink-700 text-xs font-bold px-3 py-1 rounded-full mb-3">
+                                    CSS
+                                </span>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                                    CSS Grid vs Flexbox: Cuándo usar cada uno
+                                </h3>
+                                <p class="text-sm text-gray-500 mb-3 flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                    12 de octubre, 2025
+                                </p>
+                                <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                    Una guía completa sobre las diferencias entre CSS Grid y Flexbox, y cuándo es mejor usar cada tecnología...
+                                </p>
+                                <a href="articles/articulo-css-moderno.html" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all text-sm">
+                                    Leer más
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- Article 2 -->
+                        <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                            <img src="../assets/images/4.jpg" alt="JavaScript" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                            <div class="p-6">
+                                <span class="inline-block bg-yellow-100 text-yellow-700 text-xs font-bold px-3 py-1 rounded-full mb-3">
+                                    JavaScript
+                                </span>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                                    Nuevas características de ES2024
+                                </h3>
+                                <p class="text-sm text-gray-500 mb-3 flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                    10 de octubre, 2025
+                                </p>
+                                <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                    Exploramos las últimas características añadidas al estándar ECMAScript y cómo pueden mejorar tu código...
+                                </p>
+                                <a href="articles/articulo-javascript-es6.html" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all text-sm">
+                                    Leer más
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- Article 3 -->
+                        <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                            <img src="../assets/images/5.jpg" alt="Performance" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                            <div class="p-6">
+                                <span class="inline-block bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full mb-3">
+                                    Performance
+                                </span>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                                    Optimización de rendimiento web
+                                </h3>
+                                <p class="text-sm text-gray-500 mb-3 flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                    8 de octubre, 2025
+                                </p>
+                                <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                    Técnicas avanzadas para mejorar la velocidad de carga y el rendimiento de tus aplicaciones web...
+                                </p>
+                                <a href="#" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all text-sm">
+                                    Leer más
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- Article 4 -->
+                        <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                            <img src="../assets/images/4.jpg" alt="UX Design" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                            <div class="p-6">
+                                <span class="inline-block bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full mb-3">
+                                    UX Design
+                                </span>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                                    Principios de diseño UX para 2025
+                                </h3>
+                                <p class="text-sm text-gray-500 mb-3 flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                    5 de octubre, 2025
+                                </p>
+                                <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                    Los principios fundamentales del diseño de experiencia de usuario que debes conocer este año...
+                                </p>
+                                <a href="#" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all text-sm">
+                                    Leer más
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- Article 5 -->
+                        <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                            <img src="../assets/images/5.jpg" alt="Mobile First" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                            <div class="p-6">
+                                <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full mb-3">
+                                    Mobile
+                                </span>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                                    Desarrollo Mobile-First en 2025
+                                </h3>
+                                <p class="text-sm text-gray-500 mb-3 flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                    3 de octubre, 2025
+                                </p>
+                                <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                    Por qué el enfoque mobile-first sigue siendo crucial y cómo implementarlo correctamente...
+                                </p>
+                                <a href="articles/articulo-mobile-first.html" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all text-sm">
+                                    Leer más
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- Article 6 -->
+                        <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                            <img src="../assets/images/4.jpg" alt="AI y Web" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                            <div class="p-6">
+                                <span class="inline-block bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full mb-3">
+                                    Inteligencia Artificial
+                                </span>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                                    IA en el desarrollo web
+                                </h3>
+                                <p class="text-sm text-gray-500 mb-3 flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                    1 de octubre, 2025
+                                </p>
+                                <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                    Cómo la inteligencia artificial está revolucionando el desarrollo web y las herramientas disponibles...
+                                </p>
+                                <a href="articles/articulo-ia-generativa-2025.html" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all text-sm">
+                                    Leer más
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav class="flex items-center justify-center gap-2">
+                        <a href="#" class="px-4 py-2 bg-white rounded-lg text-gray-700 hover:bg-primary hover:text-white transition-colors shadow">
+                            ‹ Anterior
+                        </a>
+                        <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg shadow font-semibold">1</a>
+                        <a href="#" class="px-4 py-2 bg-white rounded-lg text-gray-700 hover:bg-primary hover:text-white transition-colors shadow">2</a>
+                        <a href="#" class="px-4 py-2 bg-white rounded-lg text-gray-700 hover:bg-primary hover:text-white transition-colors shadow">3</a>
+                        <a href="#" class="px-4 py-2 bg-white rounded-lg text-gray-700 hover:bg-primary hover:text-white transition-colors shadow">
+                            Siguiente ›
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="lg:col-span-1 space-y-6">
+                    
+                    <!-- Categories Widget -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                            </svg>
+                            Categorías
+                        </h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="flex items-center justify-between px-4 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all group">
+                                <span class="text-gray-700 group-hover:text-primary transition-colors">Tecnología</span>
+                                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full group-hover:bg-primary group-hover:text-white transition-colors">(12)</span>
+                            </a></li>
+                            <li><a href="#" class="flex items-center justify-between px-4 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all group">
+                                <span class="text-gray-700 group-hover:text-primary transition-colors">CSS</span>
+                                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full group-hover:bg-primary group-hover:text-white transition-colors">(8)</span>
+                            </a></li>
+                            <li><a href="#" class="flex items-center justify-between px-4 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all group">
+                                <span class="text-gray-700 group-hover:text-primary transition-colors">JavaScript</span>
+                                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full group-hover:bg-primary group-hover:text-white transition-colors">(15)</span>
+                            </a></li>
+                            <li><a href="#" class="flex items-center justify-between px-4 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all group">
+                                <span class="text-gray-700 group-hover:text-primary transition-colors">UX Design</span>
+                                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full group-hover:bg-primary group-hover:text-white transition-colors">(6)</span>
+                            </a></li>
+                            <li><a href="#" class="flex items-center justify-between px-4 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all group">
+                                <span class="text-gray-700 group-hover:text-primary transition-colors">Performance</span>
+                                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full group-hover:bg-primary group-hover:text-white transition-colors">(4)</span>
+                            </a></li>
+                            <li><a href="#" class="flex items-center justify-between px-4 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all group">
+                                <span class="text-gray-700 group-hover:text-primary transition-colors">Mobile</span>
+                                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full group-hover:bg-primary group-hover:text-white transition-colors">(9)</span>
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Popular Posts Widget -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            Artículos Populares
+                        </h4>
+                        <div class="space-y-4">
+                            <article class="flex gap-3 group cursor-pointer">
+                                <img src="../assets/images/5.jpg" alt="Popular 1" class="w-20 h-20 object-cover rounded-lg group-hover:scale-105 transition-transform">
+                                <div class="flex-1">
+                                    <h5 class="font-semibold text-sm text-gray-900 group-hover:text-primary transition-colors line-clamp-2">
+                                        Guía completa de Flexbox
+                                    </h5>
+                                    <span class="text-xs text-gray-500 flex items-center gap-1 mt-1">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                        </svg>
+                                        15 oct, 2025
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="flex gap-3 group cursor-pointer">
+                                <img src="../assets/images/4.jpg" alt="Popular 2" class="w-20 h-20 object-cover rounded-lg group-hover:scale-105 transition-transform">
+                                <div class="flex-1">
+                                    <h5 class="font-semibold text-sm text-gray-900 group-hover:text-primary transition-colors line-clamp-2">
+                                        CSS Grid Layout Avanzado
+                                    </h5>
+                                    <span class="text-xs text-gray-500 flex items-center gap-1 mt-1">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                        </svg>
+                                        12 oct, 2025
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="flex gap-3 group cursor-pointer">
+                                <img src="../assets/images/5.jpg" alt="Popular 3" class="w-20 h-20 object-cover rounded-lg group-hover:scale-105 transition-transform">
+                                <div class="flex-1">
+                                    <h5 class="font-semibold text-sm text-gray-900 group-hover:text-primary transition-colors line-clamp-2">
+                                        JavaScript Moderno
+                                    </h5>
+                                    <span class="text-xs text-gray-500 flex items-center gap-1 mt-1">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                        </svg>
+                                        10 oct, 2025
+                                    </span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Widget -->
+                    <div class="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-2xl shadow-lg p-6 text-white">
+                        <h4 class="text-lg font-bold mb-2 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            Newsletter
+                        </h4>
+                        <p class="text-sm mb-4 text-white/90">Recibe las últimas noticias directamente en tu email</p>
+                        <form class="space-y-3">
+                            <input type="email" placeholder="tu@email.com" 
+                                   class="w-full px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all">
+                            <button type="submit" class="w-full bg-white text-primary font-semibold py-3 rounded-lg hover:bg-gray-100 transition-colors shadow-lg">
+                                Suscribirse 🚀
+                            </button>
+                        </form>
+                    </div>
+
+                </aside>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-8 mt-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <p class="text-sm text-gray-300">
+                        © 2025 <span class="text-primary font-semibold">Mi Blog de Programación</span>. Todos los derechos reservados.
+                    </p>
+                    <p class="text-sm text-gray-400">
+                        Desarrollado con ❤️ por <span class="text-white font-semibold">angello</span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

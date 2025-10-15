@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile-First Design: Estrategia Responsive 2025 - Mi Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navegación -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <a href="../../index.html">
+                        <img src="../../imagenes/Logo1.png" alt="Logo" class="h-12 w-12 rounded-full">
+                    </a>
+                    <a href="../../index.html">
+                        <span class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Mi Blog</span>
+                    </a>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../../index.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Inicio</a>
+                    <a href="../nosotros.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Sobre Mí</a>
+                    <a href="../servicios.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Proyectos</a>
+                    <a href="../noticias.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Blog</a>
+                    <a href="../contacto.html" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300">Contacto</a>
+                </div>
+                
+                <!-- Botón menú móvil -->
+                <button class="md:hidden text-gray-700" onclick="toggleMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Menú móvil -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="../../index.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Inicio</a>
+                <a href="../nosotros.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Sobre Mí</a>
+                <a href="../servicios.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Proyectos</a>
+                <a href="../noticias.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Blog</a>
+                <a href="../contacto.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Espaciador para el nav fijo -->
+    <div class="h-20"></div>
+
+    <main class="bg-gray-50 py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <article class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-8 text-white">
+                    <div class="flex items-center space-x-2 text-sm mb-4">
+                        <a href="../../index.html" class="hover:underline">Inicio</a>
+                        <span>›</span>
+                        <a href="../noticias.html" class="hover:underline">Blog</a>
+                        <span>›</span>
+                        <span>Mobile First</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Mobile First: Diseño Responsivo Moderno</h1>
+                    <div class="flex items-center space-x-4 text-sm">
+                        <span>📅 15 de Octubre, 2025</span>
+                        <span>⏱️ 18 min lectura</span>
+                    </div>
+                </div>
+
+                <div class="relative h-96 overflow-hidden">
+                    <img src="../../imagenes/5.jpg" alt="Mobile First" class="w-full h-full object-cover">
+                </div>
+
+                <div class="p-8 md:p-12">
+                    <div class="bg-cyan-50 border-l-4 border-cyan-600 p-6 rounded-r-lg mb-8">
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            El enfoque <strong>Mobile First</strong> consiste en diseñar primero para dispositivos móviles 
+                            y luego escalar a pantallas más grandes. Aprende a crear experiencias perfectas en todos los dispositivos.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl mb-8">
+                        <h2 class="text-2xl font-bold mb-4">📋 Contenido</h2>
+                        <ul class="space-y-2">
+                            <li><a href="#que-es" class="text-cyan-600 hover:underline">1. ¿Qué es Mobile First?</a></li>
+                            <li><a href="#viewport" class="text-cyan-600 hover:underline">2. Viewport y Meta Tags</a></li>
+                            <li><a href="#breakpoints" class="text-cyan-600 hover:underline">3. Breakpoints Estratégicos</a></li>
+                            <li><a href="#tecnicas" class="text-cyan-600 hover:underline">4. Técnicas Responsivas</a></li>
+                            <li><a href="#performance" class="text-cyan-600 hover:underline">5. Performance Móvil</a></li>
+                            <li><a href="#testing" class="text-cyan-600 hover:underline">6. Testing en Dispositivos</a></li>
+                        </ul>
+                    </div>
+
+                    <section id="que-es" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">📱 ¿Qué es Mobile First?</h2>
+                        
+                        <p class="text-lg mb-6 text-gray-700">
+                            Mobile First es una metodología de diseño web que prioriza la experiencia móvil desde el inicio 
+                            del proyecto, en lugar de adaptar un diseño desktop a móvil posteriormente.
+                        </p>
+
+                        <div class="bg-blue-50 p-6 rounded-xl mb-6">
+                            <h3 class="text-xl font-bold mb-3 text-blue-900">📊 Estadísticas Clave (2025)</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> 68% del tráfico web proviene de dispositivos móviles</li>
+                                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> Google usa Mobile-First Indexing desde 2019</li>
+                                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> 53% de usuarios abandonan sitios que tardan +3 segundos en móvil</li>
+                                <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> 88% de usuarios no vuelven a un sitio con mala experiencia móvil</li>
+                            </ul>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div class="bg-red-50 p-6 rounded-xl border-2 border-red-200">
+                                <h3 class="text-xl font-bold mb-3 text-red-900">❌ Enfoque Desktop First</h3>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li>1. Diseñar para desktop</li>
+                                    <li>2. Reducir elementos para tablet</li>
+                                    <li>3. Comprimir para móvil</li>
+                                    <li>4. Problemas de usabilidad</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-50 p-6 rounded-xl border-2 border-green-200">
+                                <h3 class="text-xl font-bold mb-3 text-green-900">✅ Enfoque Mobile First</h3>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li>1. Diseñar para móvil (esencial)</li>
+                                    <li>2. Mejorar para tablet</li>
+                                    <li>3. Expandir para desktop</li>
+                                    <li>4. Experiencia optimizada</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="viewport" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">🖼️ Viewport y Meta Tags</h2>
+                        
+                        <p class="text-lg mb-6 text-gray-700">
+                            El viewport meta tag es esencial para que tu sitio se vea correctamente en dispositivos móviles.
+                        </p>
+
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  
+  &lt;!-- Viewport esencial --&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  
+  &lt;!-- Para iOS --&gt;
+  &lt;meta name="apple-mobile-web-app-capable" content="yes"&gt;
+  &lt;meta name="apple-mobile-web-app-status-bar-style" content="black"&gt;
+  
+  &lt;!-- Para Android --&gt;
+  &lt;meta name="theme-color" content="#3b82f6"&gt;
+  
+  &lt;title&gt;Mi Sitio Mobile First&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+                        </div>
+
+                        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-r-lg">
+                            <h4 class="font-bold text-yellow-900 mb-2">⚠️ Evita Estos Errores</h4>
+                            <div class="bg-gray-900 text-white p-4 rounded-lg mt-3">
+                                <pre class="text-sm"><code>&lt;!-- ❌ NO hacer esto --&gt;
+&lt;meta name="viewport" content="width=1024"&gt;
+&lt;meta name="viewport" content="user-scalable=no"&gt;
+
+&lt;!-- ✅ Correcto --&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="breakpoints" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">📏 Breakpoints Estratégicos</h2>
+                        
+                        <p class="text-lg mb-6 text-gray-700">
+                            Los breakpoints definen dónde cambia el diseño según el tamaño de pantalla.
+                        </p>
+
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>/* Sistema de Breakpoints Moderno (2025) */
+
+/* Mobile (base) - 320px a 639px */
+.contenedor {
+  padding: 1rem;
+  font-size: 16px;
+}
+
+/* Tablet - 640px en adelante */
+@media (min-width: 640px) {
+  .contenedor {
+    padding: 1.5rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet grande - 768px en adelante */
+@media (min-width: 768px) {
+  .contenedor {
+    max-width: 768px;
+    padding: 2rem;
+  }
+}
+
+/* Desktop - 1024px en adelante */
+@media (min-width: 1024px) {
+  .contenedor {
+    max-width: 1024px;
+    padding: 3rem;
+  }
+}
+
+/* Desktop grande - 1280px en adelante */
+@media (min-width: 1280px) {
+  .contenedor {
+    max-width: 1280px;
+  }
+}
+
+/* Ultra wide - 1536px en adelante */
+@media (min-width: 1536px) {
+  .contenedor {
+    max-width: 1536px;
+  }
+}</code></pre>
+                        </div>
+
+                        <div class="bg-purple-50 p-6 rounded-xl">
+                            <h3 class="text-xl font-bold mb-3 text-purple-900">💡 Breakpoints Basados en Contenido</h3>
+                            <p class="text-gray-700 mb-3">
+                                En lugar de usar breakpoints fijos, considera breakpoints basados en cuándo el diseño necesita cambiar:
+                            </p>
+                            <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                <pre class="text-sm"><code>/* Cambia cuando el contenido lo necesite */
+.navegacion {
+  /* Móvil: menú vertical */
+  flex-direction: column;
+}
+
+/* Cuando hay espacio para horizontal */
+@media (min-width: 600px) {
+  .navegacion {
+    flex-direction: row;
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="tecnicas" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">🎨 Técnicas Responsivas</h2>
+                        
+                        <h3 class="text-2xl font-bold mb-4">1. Imágenes Responsivas</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>&lt;!-- Imágenes fluidas --&gt;
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+&lt;!-- Picture element para diferentes tamaños --&gt;
+&lt;picture&gt;
+  &lt;source media="(min-width: 1024px)" srcset="hero-large.jpg"&gt;
+  &lt;source media="(min-width: 768px)" srcset="hero-medium.jpg"&gt;
+  &lt;img src="hero-small.jpg" alt="Hero"&gt;
+&lt;/picture&gt;
+
+&lt;!-- Srcset para diferentes resoluciones --&gt;
+&lt;img 
+  src="logo.png"
+  srcset="logo.png 1x, logo@2x.png 2x, logo@3x.png 3x"
+  alt="Logo"
+&gt;</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">2. Tipografía Fluida</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>/* Tamaño de fuente fluido con clamp() */
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  /* Mínimo 2rem, preferido 5vw, máximo 4rem */
+}
+
+p {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.6;
+}
+
+/* Con calc() y vw */
+.titulo {
+  font-size: calc(1.5rem + 2vw);
+}</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">3. Grid Responsivo</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>/* Grid que se adapta automáticamente */
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Mobile: 1 columna, Tablet: 2, Desktop: 3 */
+.grid-responsive {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">4. Menú Hamburguesa</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>&lt;!-- HTML --&gt;
+&lt;nav class="navbar"&gt;
+  &lt;div class="logo"&gt;Mi Sitio&lt;/div&gt;
+  &lt;button class="menu-toggle" id="menuToggle"&gt;
+    &lt;span&gt;&lt;/span&gt;
+    &lt;span&gt;&lt;/span&gt;
+    &lt;span&gt;&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul class="menu" id="menu"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+/* CSS */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.menu {
+  display: none; /* Oculto en móvil */
+}
+
+.menu.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.menu-toggle {
+  display: block;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .menu {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    box-shadow: none;
+    gap: 2rem;
+  }
+  
+  .menu-toggle {
+    display: none;
+  }
+}
+
+// JavaScript
+document.getElementById('menuToggle').addEventListener('click', () => {
+  document.getElementById('menu').classList.toggle('active')
+})</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="performance" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">⚡ Performance Móvil</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-blue-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-3 text-blue-900">1. Optimizar Imágenes</h3>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-start"><span class="text-blue-600 mr-2">✓</span> Usa formatos modernos (WebP, AVIF)</li>
+                                    <li class="flex items-start"><span class="text-blue-600 mr-2">✓</span> Lazy loading para imágenes below the fold</li>
+                                    <li class="flex items-start"><span class="text-blue-600 mr-2">✓</span> Comprime imágenes (TinyPNG, Squoosh)</li>
+                                    <li class="flex items-start"><span class="text-blue-600 mr-2">✓</span> Usa CDN para servir imágenes</li>
+                                </ul>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg mt-3">
+                                    <pre class="text-sm"><code>&lt;img 
+  src="imagen.webp" 
+  loading="lazy"
+  alt="Descripción"
+&gt;</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="bg-purple-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-3 text-purple-900">2. Minimizar JavaScript</h3>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-start"><span class="text-purple-600 mr-2">✓</span> Carga solo el JS necesario</li>
+                                    <li class="flex items-start"><span class="text-purple-600 mr-2">✓</span> Code splitting por rutas</li>
+                                    <li class="flex items-start"><span class="text-purple-600 mr-2">✓</span> Defer o async para scripts no críticos</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-green-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-3 text-green-900">3. Critical CSS</h3>
+                                <p class="text-gray-700 mb-3">Inline el CSS crítico para First Paint rápido:</p>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                    <pre class="text-sm"><code>&lt;head&gt;
+  &lt;style&gt;
+    /* CSS crítico inline */
+    body { margin: 0; font-family: sans-serif; }
+    .hero { min-height: 100vh; }
+  &lt;/style&gt;
+  
+  &lt;!-- CSS completo diferido --&gt;
+  &lt;link rel="preload" href="styles.css" as="style"&gt;
+  &lt;link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'"&gt;
+&lt;/head&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="testing" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">🧪 Testing en Dispositivos</h2>
+                        
+                        <div class="bg-gray-50 p-6 rounded-xl mb-6">
+                            <h3 class="text-xl font-bold mb-3">Herramientas de Testing</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <div class="bg-blue-500 text-white rounded-full p-2 mr-3 mt-1">🔧</div>
+                                    <div>
+                                        <strong>Chrome DevTools</strong>
+                                        <p class="text-gray-600">F12 → Toggle device toolbar (Ctrl+Shift+M)</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-green-500 text-white rounded-full p-2 mr-3 mt-1">📱</div>
+                                    <div>
+                                        <strong>BrowserStack</strong>
+                                        <p class="text-gray-600">Prueba en dispositivos reales remotos</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-purple-500 text-white rounded-full p-2 mr-3 mt-1">⚡</div>
+                                    <div>
+                                        <strong>Google Lighthouse</strong>
+                                        <p class="text-gray-600">Auditoría de performance móvil</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-orange-500 text-white rounded-full p-2 mr-3 mt-1">🎯</div>
+                                    <div>
+                                        <strong>Responsively App</strong>
+                                        <p class="text-gray-600">Vista de múltiples dispositivos simultáneamente</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-r-lg">
+                            <h4 class="font-bold text-yellow-900 mb-2">✅ Checklist Mobile First</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start"><input type="checkbox" class="mr-2 mt-1"> Viewport meta tag configurado</li>
+                                <li class="flex items-start"><input type="checkbox" class="mr-2 mt-1"> Imágenes responsivas y optimizadas</li>
+                                <li class="flex items-start"><input type="checkbox" class="mr-2 mt-1"> Texto legible sin zoom (16px mínimo)</li>
+                                <li class="flex items-start"><input type="checkbox" class="mr-2 mt-1"> Botones táctiles de 44x44px mínimo</li>
+                                <li class="flex items-start"><input type="checkbox" class="mr-2 mt-1"> Formularios optimizados para móvil</li>
+                                <li class="flex items-start"><input type="checkbox" class="mr-2 mt-1"> Navegación touch-friendly</li>
+                                <li class="flex items-start"><input type="checkbox" class="mr-2 mt-1"> Tiempo de carga &lt;3 segundos</li>
+                                <li class="flex items-start"><input type="checkbox" class="mr-2 mt-1"> Lighthouse score &gt;90</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-8 rounded-xl text-white mt-12">
+                        <h2 class="text-2xl font-bold mb-4">🎯 Conclusión</h2>
+                        <p class="text-lg leading-relaxed">
+                            Mobile First no es solo una técnica, es una mentalidad que prioriza la mayoría de tus usuarios. 
+                            Diseñar para móvil primero resulta en sitios más rápidos, accesibles y eficientes en todos los dispositivos. 
+                            En 2025, no es opcional: es esencial.
+                        </p>
+                    </div>
+
+                    <div class="flex justify-between items-center mt-12 pt-8 border-t">
+                        <a href="articulo-ia-generativa-2025.html" class="text-cyan-600 hover:underline">← IA Generativa</a>
+                        <a href="../noticias.html" class="text-gray-600 hover:text-cyan-600">Ver todos</a>
+                        <a href="articulo-css-moderno.html" class="text-cyan-600 hover:underline">CSS Moderno →</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2025 Mi Blog. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

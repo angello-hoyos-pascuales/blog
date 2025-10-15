@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next.js 15: App Router 2.0 - Framework Definitivo 2025 - Mi Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navegación -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <a href="../../index.html">
+                        <img src="../../imagenes/Logo1.png" alt="Logo" class="h-12 w-12 rounded-full">
+                    </a>
+                    <a href="../../index.html">
+                        <span class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Mi Blog</span>
+                    </a>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../../index.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Inicio</a>
+                    <a href="../nosotros.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Sobre Mí</a>
+                    <a href="../servicios.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Proyectos</a>
+                    <a href="../noticias.html" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Blog</a>
+                    <a href="../contacto.html" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300">Contacto</a>
+                </div>
+                
+                <!-- Botón menú móvil -->
+                <button class="md:hidden text-gray-700" onclick="toggleMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Menú móvil -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="../../index.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Inicio</a>
+                <a href="../nosotros.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Sobre Mí</a>
+                <a href="../servicios.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Proyectos</a>
+                <a href="../noticias.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Blog</a>
+                <a href="../contacto.html" class="block py-2 text-gray-700 hover:text-primary transition-colors duration-300">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Espaciador para el nav fijo -->
+    <div class="h-20"></div>\n
+    <main class="bg-gray-50 py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <article class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="bg-gradient-to-r from-green-600 to-teal-600 p-8 text-white">
+                    <div class="flex items-center space-x-2 text-sm mb-4">
+                        <a href="../../index.html" class="hover:underline">Inicio</a>
+                        <span>›</span>
+                        <a href="../noticias.html" class="hover:underline">Blog</a>
+                        <span>›</span>
+                        <span>Next.js 15</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Next.js 15: Guía Completa del Framework</h1>
+                    <div class="flex items-center space-x-4 text-sm">
+                        <span>📅 15 de Octubre, 2025</span>
+                        <span>⏱️ 18 min lectura</span>
+                    </div>
+                </div>
+
+                <div class="relative h-96 overflow-hidden">
+                    <img src="../../imagenes/4.jpg" alt="Next.js 15" class="w-full h-full object-cover">
+                </div>
+
+                <div class="p-8 md:p-12">
+                    <div class="bg-green-50 border-l-4 border-green-600 p-6 rounded-r-lg mb-8">
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            <strong>Next.js 15</strong> revoluciona el desarrollo React con Turbopack, App Router 2.0 
+                            y optimizaciones automáticas que mejoran el rendimiento hasta 4x comparado con versiones anteriores.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl mb-8">
+                        <h2 class="text-2xl font-bold mb-4">📋 Contenido</h2>
+                        <ul class="space-y-2">
+                            <li><a href="#turbopack" class="text-green-600 hover:underline">1. Turbopack: El Nuevo Bundler</a></li>
+                            <li><a href="#app-router" class="text-green-600 hover:underline">2. App Router 2.0</a></li>
+                            <li><a href="#server-actions" class="text-green-600 hover:underline">3. Server Actions</a></li>
+                            <li><a href="#optimizaciones" class="text-green-600 hover:underline">4. Optimizaciones Automáticas</a></li>
+                            <li><a href="#proyecto" class="text-green-600 hover:underline">5. Crear tu Primer Proyecto</a></li>
+                        </ul>
+                    </div>
+
+                    <section id="turbopack" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">🚀 Turbopack: Compilación Ultra Rápida</h2>
+                        <p class="text-lg mb-6 text-gray-700">
+                            Turbopack, escrito en Rust, es 700x más rápido que Webpack y 10x más rápido que Vite en proyectos grandes.
+                        </p>
+
+                        <div class="grid md:grid-cols-3 gap-6 mb-8">
+                            <div class="bg-blue-50 p-6 rounded-xl text-center">
+                                <div class="text-4xl font-bold text-blue-600 mb-2">700x</div>
+                                <p class="text-gray-700">Más rápido que Webpack</p>
+                            </div>
+                            <div class="bg-purple-50 p-6 rounded-xl text-center">
+                                <div class="text-4xl font-bold text-purple-600 mb-2">10x</div>
+                                <p class="text-gray-700">Más rápido que Vite</p>
+                            </div>
+                            <div class="bg-green-50 p-6 rounded-xl text-center">
+                                <div class="text-4xl font-bold text-green-600 mb-2">&lt;50ms</div>
+                                <p class="text-gray-700">Hot Module Reload</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">⚙️ Configuración</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl overflow-x-auto mb-6">
+                            <pre class="text-sm"><code>// next.config.js
+module.exports = {
+  // Turbopack activado por defecto en Next.js 15
+  experimental: {
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js'
+        }
+      }
+    }
+  }
+}</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="app-router" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">📁 App Router 2.0: Estructura Moderna</h2>
+                        <p class="text-lg mb-6 text-gray-700">
+                            App Router introduce un nuevo sistema de rutas basado en carpetas con soporte nativo para layouts,
+                            loading states y error boundaries.
+                        </p>
+
+                        <h3 class="text-2xl font-bold mb-4">🏗️ Estructura de Carpetas</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>app/
+├── layout.tsx          # Layout raíz
+├── page.tsx           # Página de inicio
+├── loading.tsx        # Loading UI
+├── error.tsx          # Error handling
+├── not-found.tsx      # 404 page
+└── blog/
+    ├── layout.tsx     # Layout del blog
+    ├── page.tsx       # Lista de posts
+    └── [slug]/
+        └── page.tsx   # Post individual</code></pre>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-4">📄 Ejemplo de Layout</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>// app/layout.tsx
+export default function RootLayout({
+  children
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    &lt;html lang="es"&gt;
+      &lt;body&gt;
+        &lt;nav&gt;Mi Navegación&lt;/nav&gt;
+        &lt;main&gt;{children}&lt;/main&gt;
+        &lt;footer&gt;Mi Footer&lt;/footer&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  )
+}</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="server-actions" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">🔄 Server Actions: Mutaciones Simples</h2>
+                        <p class="text-lg mb-6 text-gray-700">
+                            Server Actions permiten ejecutar código del servidor directamente desde componentes del cliente 
+                            sin necesidad de crear APIs REST.
+                        </p>
+
+                        <h3 class="text-2xl font-bold mb-4">Ejemplo Completo</h3>
+                        <div class="bg-gray-900 text-white p-6 rounded-xl mb-6">
+                            <pre class="text-sm"><code>// app/actions.ts
+'use server'
+
+import { db } from '@/lib/database'
+import { revalidatePath } from 'next/cache'
+
+export async function createPost(formData: FormData) {
+  const title = formData.get('title') as string
+  const content = formData.get('content') as string
+
+  await db.post.create({
+    data: { title, content, published: true }
+  })
+
+  revalidatePath('/blog')
+  return { success: true }
+}
+
+// app/blog/nuevo/page.tsx
+'use client'
+import { createPost } from '@/app/actions'
+
+export default function NuevoPost() {
+  return (
+    &lt;form action={createPost}&gt;
+      &lt;input name="title" placeholder="Título" required /&gt;
+      &lt;textarea name="content" placeholder="Contenido" required /&gt;
+      &lt;button type="submit"&gt;Publicar&lt;/button&gt;
+    &lt;/form&gt;
+  )
+}</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="optimizaciones" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">⚡ Optimizaciones Automáticas</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-blue-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-3 text-blue-900">🖼️ Optimización de Imágenes</h3>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                    <pre class="text-sm"><code>import Image from 'next/image'
+
+&lt;Image
+  src="/foto.jpg"
+  alt="Foto"
+  width={800}
+  height={600}
+  priority // Para imágenes above the fold
+/&gt;</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="bg-purple-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-3 text-purple-900">🔤 Optimización de Fuentes</h3>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                    <pre class="text-sm"><code>import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
+
+export default function RootLayout({ children }) {
+  return (
+    &lt;html className={inter.className}&gt;
+      &lt;body&gt;{children}&lt;/body&gt;
+    &lt;/html&gt;
+  )
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="bg-green-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-3 text-green-900">📦 Code Splitting Automático</h3>
+                                <p class="text-gray-700">Next.js divide el código automáticamente por ruta, cargando solo lo necesario.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="proyecto" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-6">🛠️ Crear tu Primer Proyecto</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-gray-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-3">Paso 1: Crear el Proyecto</h3>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                    <pre class="text-sm"><code>npx create-next-app@latest mi-app
+cd mi-app
+npm run dev</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-3">Paso 2: Configurar Base de Datos</h3>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                    <pre class="text-sm"><code>npm install prisma @prisma/client
+npx prisma init
+npx prisma migrate dev</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-3">Paso 3: Deploy en Vercel</h3>
+                                <div class="bg-gray-900 text-white p-4 rounded-lg">
+                                    <pre class="text-sm"><code>npm install -g vercel
+vercel</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="bg-gradient-to-r from-green-600 to-teal-600 p-8 rounded-xl text-white mt-12">
+                        <h2 class="text-2xl font-bold mb-4">🎯 Conclusión</h2>
+                        <p class="text-lg leading-relaxed">
+                            Next.js 15 es el framework más completo para React. Con Turbopack, App Router y optimizaciones 
+                            automáticas, crear aplicaciones web profesionales nunca fue tan fácil y rápido.
+                        </p>
+                    </div>
+
+                    <div class="flex justify-between items-center mt-12 pt-8 border-t">
+                        <a href="articulo-nodejs-principiantes.html" class="text-green-600 hover:underline">← Node.js</a>
+                        <a href="../noticias.html" class="text-gray-600 hover:text-green-600">Ver todos</a>
+                        <a href="articulo-react-19-2025.html" class="text-green-600 hover:underline">React 19 →</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2025 Mi Blog. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

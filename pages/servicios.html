@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - Mi Blog de Programación</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#8b5cf6'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <!-- Navigation -->
+        <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-md z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <div class="flex-shrink-0">
+                        <a href="../index.html" class="flex items-center gap-2">
+                            <img src="../assets/images/Logo1.png" alt="Logo" class="h-12 w-auto">
+                            <span class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Proyectos</span>
+                        </a>
+                    </div>
+                    
+                    <div class="hidden md:flex items-center gap-8">
+                        <a href="../index.html" class="text-gray-700 hover:text-primary transition-colors font-medium">Inicio</a>
+                        <a href="nosotros.html" class="text-gray-700 hover:text-primary transition-colors font-medium">Sobre Mí</a>
+                        <a href="servicios.html" class="text-primary font-semibold">Proyectos</a>
+                        <a href="noticias.html" class="text-gray-700 hover:text-primary transition-colors font-medium">Blog</a>
+                        <a href="contacto.html" class="text-gray-700 hover:text-primary transition-colors font-medium">Contacto</a>
+                    </div>
+                    
+                    <button onclick="toggleMenu()" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div id="mobile-menu" class="hidden md:hidden pb-4">
+                    <a href="../index.html" class="block py-2 text-gray-700 hover:text-primary transition-colors">Inicio</a>
+                    <a href="nosotros.html" class="block py-2 text-gray-700 hover:text-primary transition-colors">Sobre Mí</a>
+                    <a href="servicios.html" class="block py-2 text-primary font-semibold">Proyectos</a>
+                    <a href="noticias.html" class="block py-2 text-gray-700 hover:text-primary transition-colors">Blog</a>
+                    <a href="contacto.html" class="block py-2 text-gray-700 hover:text-primary transition-colors">Contacto</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="relative bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white pt-32 pb-20">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00em0wLTEyYzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0IDEuNzkgNCA0IDQgNC0xLjc5IDQtNHptMC0xMmMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAxLjc5IDQgNCA0IDQtMS43OSA0LTR6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-10"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
+                    Nuestros Servicios Profesionales
+                </h1>
+                <p class="text-xl text-white/90">Soluciones tecnológicas a medida para tu negocio</p>
+            </div>
+        </header>
+
+        <!-- Services Grid -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1 -->
+                <article class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Desarrollo Web</h3>
+                    <p class="text-gray-600 mb-4">Creamos sitios web modernos y responsivos utilizando las últimas tecnologías: HTML5, CSS3, JavaScript, React, y más.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Sitios web responsivos
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Aplicaciones web
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            E-commerce
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Sistemas personalizados
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all">
+                        Saber más
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </article>
+
+                <!-- Service 2 -->
+                <article class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Desarrollo Mobile</h3>
+                    <p class="text-gray-600 mb-4">Aplicaciones móviles nativas e híbridas para iOS y Android, optimizadas para rendimiento y experiencia de usuario.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Apps nativas
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Apps híbridas
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Progressive Web Apps
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Optimización móvil
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all">
+                        Saber más
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </article>
+
+                <!-- Service 3 -->
+                <article class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Diseño UI/UX</h3>
+                    <p class="text-gray-600 mb-4">Diseñamos interfaces intuitivas y experiencias de usuario excepcionales que convierten visitantes en clientes.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Diseño de interfaces
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Prototipado
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Investigación UX
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Testing de usabilidad
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all">
+                        Saber más
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </article>
+
+                <!-- Service 4 -->
+                <article class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">SEO & Marketing</h3>
+                    <p class="text-gray-600 mb-4">Optimizamos tu presencia online para aumentar la visibilidad en buscadores y atraer más clientes potenciales.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Optimización SEO
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Marketing digital
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Análisis de métricas
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Estrategias de contenido
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all">
+                        Saber más
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </article>
+
+                <!-- Service 5 -->
+                <article class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Mantenimiento Web</h3>
+                    <p class="text-gray-600 mb-4">Servicios de mantenimiento y soporte técnico para mantener tu sitio web actualizado, seguro y funcionando perfectamente.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Actualizaciones de seguridad
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Copias de seguridad
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Monitoreo 24/7
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Soporte técnico
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all">
+                        Saber más
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </article>
+
+                <!-- Service 6 -->
+                <article class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Consultoría Técnica</h3>
+                    <p class="text-gray-600 mb-4">Asesoría especializada en tecnologías web, arquitectura de sistemas y estrategias de transformación digital.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Auditorías técnicas
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Arquitectura de sistemas
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Migración de plataformas
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Capacitación de equipos
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all">
+                        Saber más
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-8 mt-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <p class="text-sm text-gray-300">
+                        © 2025 <span class="text-primary font-semibold">Mi Blog de Programación</span>. Todos los derechos reservados.
+                    </p>
+                    <p class="text-sm text-gray-400">
+                        Desarrollado con ❤️ por <span class="text-white font-semibold">angello</span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
